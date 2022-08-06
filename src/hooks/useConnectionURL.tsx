@@ -9,15 +9,11 @@ export const useConnectionURL = (): UseConnectionURL => {
   const getConnectionURL = () => localStorage.getItem('@redis-ui/connectionURL') ?? '';
 
   const connect = async (newConnectionURL: string) => {
-    // localStorage.setItem('@redis-ui/connectionURL', newConnectionURL);
-    const result = await invoke(
-      'get_all_keys'
-      // { connectionURL: newConnectionURL }
-    );
-    console.log('result: ', result);
-    // if (!result) {
-    //   throw new Error("We can't connect on your redis with that link!");
-    // }
+    localStorage.setItem('@redis-ui/connectionURL', newConnectionURL);
+    const result = await invoke('connect', { connectionURL: newConnectionURL });
+    if (!result) {
+      throw new Error("We can't connect on your redis with that link!");
+    }
     return newConnectionURL;
   };
 
