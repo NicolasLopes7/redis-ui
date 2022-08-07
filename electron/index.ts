@@ -25,6 +25,12 @@ function createWindow() {
 
   if (isDev) {
     window?.loadURL(url);
+    window?.webContents?.openDevTools();
+    window?.webContents.on('devtools-opened', () => {
+      setImmediate(() => {
+        window.focus();
+      });
+    });
   } else {
     window?.loadFile(url);
   }
@@ -61,5 +67,5 @@ ipcMain.on('message', (event: IpcMainEvent, message: any) => {
 });
 
 Object.entries(handlers).forEach(([channel, callback]) => {
-  ipcMain.on(channel, callback);
+  ipcMain.handle(channel, callback);
 });

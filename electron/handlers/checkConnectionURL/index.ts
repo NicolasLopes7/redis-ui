@@ -10,4 +10,4 @@ const checkConnectionURL = async (connectionURL: string) => {
   }
 };
 
-export const CheckConnectionURLHandler = new Handler('checkConnectionURL', checkConnectionURL);
+export const CheckConnectionURLHandler = new Handler('connect', checkConnectionURL);
