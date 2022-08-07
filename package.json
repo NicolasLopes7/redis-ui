@@ -1,12 +1,8 @@
 {
-  "name": "vite-reactts-electron-starter",
+  "name": "redis-ui",
   "version": "0.5.0",
   "license": "MIT",
   "main": "main/index.js",
-  "author": {
-    "name": "Maximilian Stümpfl"
-  },
-  "description": "Starter using Vite 2+ React +Typescript + Electron for fast prototyping.",
   "keywords": [
     "vite",
     "react",
@@ -14,9 +10,9 @@
     "typescript"
   ],
   "repository": {
-    "url": "https://github.com/lTimeless/vite-reactts-electron-starter"
+    "url": "https://github.com/NicolasLopes7/redis-ui"
   },
-  "productName": "vite-reactts-electron-starter",
+  "productName": "redis-ui",
   "scripts": {
     "dev": "concurrently \"yarn dev:vite\" \" yarn dev:electron\"",
     "dev:vite": "vite",
