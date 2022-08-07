@@ -1,6 +1,6 @@
 import { join } from 'path';
 
-import { BrowserWindow, app, ipcMain, IpcMainEvent } from 'electron';
+import { BrowserWindow, app, ipcMain } from 'electron';
 import isDev from 'electron-is-dev';
 import handlers from './handlers';
 
@@ -11,7 +11,7 @@ function createWindow() {
   const window = new BrowserWindow({
     width,
     height,
-    frame: false,
+    frame: true,
     show: true,
     resizable: true,
     fullscreenable: true,
