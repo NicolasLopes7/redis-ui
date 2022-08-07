@@ -61,11 +61,6 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
 
-ipcMain.on('message', (event: IpcMainEvent, message: any) => {
-  console.log(message);
-  setTimeout(() => event.sender.send('message', 'hi from electron'), 500);
-});
-
 Object.entries(handlers).forEach(([channel, callback]) => {
   ipcMain.handle(channel, callback);
 });
