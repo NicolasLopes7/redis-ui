@@ -31,12 +31,13 @@
     "@stitches/react": "^1.2.8",
     "@vitejs/plugin-react": "^1.2.0",
     "electron-is-dev": "^2.0.0",
+    "ioredis": "^5.2.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "vite": "^2.8.6"
   },
   "devDependencies": {
-    "@types/node": "^17.0.22",
+    "@types/node": "^17.0.45",
     "@types/react": "^17.0.41",
     "@types/react-dom": "^17.0.14",
     "@typescript-eslint/eslint-plugin": "5.16.0",
