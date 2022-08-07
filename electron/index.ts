@@ -2,6 +2,7 @@ import { join } from 'path';
 
 import { BrowserWindow, app, ipcMain, IpcMainEvent } from 'electron';
 import isDev from 'electron-is-dev';
+import handlers from './handlers';
 
 const height = 600;
 const width = 800;
@@ -57,4 +58,8 @@ app.on('window-all-closed', () => {
 ipcMain.on('message', (event: IpcMainEvent, message: any) => {
   console.log(message);
   setTimeout(() => event.sender.send('message', 'hi from electron'), 500);
+});
+
+Object.entries(handlers).forEach(([channel, callback]) => {
+  ipcMain.on(channel, callback);
 });
