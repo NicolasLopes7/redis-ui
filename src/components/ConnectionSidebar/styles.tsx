@@ -8,8 +8,17 @@ export const SidebarGroup = styled('div', {
 });
 
 export const SidebarItem = styled(Link, {
-  fontSize: '$2xl',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '8px',
+  fontSize: '$md',
   color: '$white',
+  padding: '8px 32px',
+
+  '& svg': {
+    width: '16px',
+    height: '16px'
+  },
 
   textDecoration: 'none',
 

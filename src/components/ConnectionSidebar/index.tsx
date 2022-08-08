@@ -20,20 +20,20 @@ export function ConnectionSidebar() {
         display: 'flex',
         flexDirection: 'column',
         gap: '24px',
-        padding: '32px 20px'
+        padding: '32px 0px'
       }}
     >
       <SidebarGroup>
         <SidebarItem to="">
-          <KeyboardIcon />
+          <KeyboardIcon /> Keys
         </SidebarItem>
 
         <SidebarItem to="/pub-sub">
-          <EyeOpenIcon />
+          <EyeOpenIcon /> Pub Sub
         </SidebarItem>
 
         <SidebarItem to="..">
-          <BackpackIcon />
+          <BackpackIcon /> Leave
         </SidebarItem>
       </SidebarGroup>
     </Box>
