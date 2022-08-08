@@ -12,7 +12,11 @@ export const connect: Connect = async (connectionURL: string) => {
     connectionPool[connectionURL] = connection;
 
     return new Promise((resolve, reject) => {
-      connection.once('connect', () => resolve(connection));
+      connection.once('connect', () => {
+        connectionPool[connectionURL] = connection;
+        resolve(connection);
+      });
+
       connection.once('error', (e) => reject(new Error(e)));
     });
   }

@@ -1,11 +1,12 @@
 import { createStitches } from '@stitches/react';
 
-export const { styled } = createStitches({
+export const { styled, keyframes } = createStitches({
   theme: {
     colors: {
       bg: '#212121',
       bg50: '#2C2C2C',
       bg100: '#333333',
+      bg200: '#3F3F3F',
 
       white: '#FFFFFF',
 

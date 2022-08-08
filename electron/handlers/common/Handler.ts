@@ -1,4 +1,6 @@
-export type Fn<T> = (args: T) => Promise<unknown> | unknown;
+import { IpcMainInvokeEvent } from 'electron';
+
+export type Fn<T> = (event: IpcMainInvokeEvent, args: T) => Promise<unknown> | unknown;
 
 export class Handler<T> {
   public name: string;

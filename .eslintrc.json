@@ -25,16 +25,19 @@
     "prettier/prettier": "error",
     // Typescript
     "no-use-before-define": "off",
+    "no-new": "off",
     "import/prefer-default-export": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/no-var-requires": "warn",
+    "@typescript-eslint/ban-types": "off",
     // react
     "react/require-default-props": 0,
     "react/button-has-type": 0,
     "react/no-children-prop": 0,
     "react/jsx-props-no-spreading": 0,
+    "react/jsx-no-constructed-context-values": "off",
     "react/function-component-definition": [
       "warn",
       {
