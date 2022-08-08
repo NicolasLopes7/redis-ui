@@ -4,8 +4,6 @@ import { InitialLayout } from './Layout/Initial';
 import { FirstConnectionPage } from './pages/FistConnection';
 import { KeysPage } from './pages/KeysPage';
 
-// redis://localhost:6379
-
 export function Router() {
   return (
     <BrowserRouter>
