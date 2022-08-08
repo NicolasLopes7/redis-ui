@@ -1,6 +1,5 @@
-import { styled, keyframes } from '@stitches/react';
-import { slate } from '@radix-ui/colors';
 import * as ToastPrimitive from '@radix-ui/react-toast';
+import { styled, keyframes } from '../../stitches.config';
 
 const VIEWPORT_PADDING = 25;
 
@@ -63,6 +62,22 @@ const StyledToast = styled(ToastPrimitive.Root, {
     },
     '&[data-swipe="end"]': {
       animation: `${swipeOut} 100ms ease-out`
+    }
+  },
+  variants: {
+    type: {
+      success: {
+        borderLeft: '2px solid green'
+      },
+      error: {
+        borderLeft: '2px solid red'
+      },
+      info: {
+        borderLeft: '2px solid blue'
+      },
+      warning: {
+        borderLeft: '2px solid yellow'
+      }
     }
   }
 });

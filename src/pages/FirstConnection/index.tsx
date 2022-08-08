@@ -54,12 +54,15 @@ export function FirstConnectionPage() {
           display: 'flex',
           alignItems: 'center',
           gap: '16px',
-          padding: '48px 16px'
+          padding: '32px 16px'
         }}
       >
         <TextInput
           css={{
-            fontSize: '$lg'
+            fontSize: '$md',
+            '&::placeholder': {
+              fontSize: '$sm'
+            }
           }}
           placeholder="Type your connection url"
           onChange={(e) => setConnectionURL(e.target.value)}
