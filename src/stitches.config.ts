@@ -3,8 +3,8 @@ import { createStitches } from '@stitches/react';
 export const { styled, keyframes } = createStitches({
   theme: {
     colors: {
-      bg: '#212121',
-      bg50: '#2C2C2C',
+      bg: '#101010',
+      bg50: '#202020',
       bg100: '#333333',
       bg200: '#3F3F3F',
 
@@ -13,8 +13,8 @@ export const { styled, keyframes } = createStitches({
       black: '#000000',
       black50: '#111',
       black100: '#191919',
-      black200: '#202020',
-      black300: '#282828',
+      black200: '#1C1C1C',
+      black300: '#252525',
 
       text: '#fff',
       text100: '#eee',

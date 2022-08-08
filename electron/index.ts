@@ -4,8 +4,8 @@ import { BrowserWindow, app, ipcMain } from 'electron';
 import isDev from 'electron-is-dev';
 import handlers from './handlers';
 
-const height = 600;
-const width = 800;
+const height = 720;
+const width = 1200;
 
 function createWindow() {
   const window = new BrowserWindow({

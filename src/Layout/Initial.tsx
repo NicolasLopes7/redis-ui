@@ -3,15 +3,24 @@ import { Outlet } from 'react-router-dom';
 import { Box } from '../components/base';
 import { Background } from '../components/base/Background';
 import { Text } from '../components/base/Text';
+import { Sidebar } from '../components/Sidebar';
 
 export function InitialLayout() {
   return (
-    <Background>
+    <Background
+      css={{
+        display: 'flex',
+        flexDirection: 'row'
+      }}
+    >
+      <Sidebar />
       <Box
         css={{
           display: 'flex',
           flexDirection: 'column',
+          justifyContent: 'center',
           alignItems: 'center',
+          flex: 1,
           gap: '24px'
         }}
       >
