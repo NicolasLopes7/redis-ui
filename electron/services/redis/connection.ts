@@ -9,7 +9,6 @@ export const connect: Connect = async (connectionURL: string) => {
       enableReadyCheck: true,
       connectTimeout: 15000
     });
-    connectionPool[connectionURL] = connection;
 
     return new Promise((resolve, reject) => {
       connection.once('connect', () => {
