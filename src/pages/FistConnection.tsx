@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Box, Button } from '../components/base';
 import { Card } from '../components/base/Card';
 import { TextInput } from '../components/base/TextInput';
+import { useConnectionsProvider } from '../contexts/ConnectionsProvider';
 import { useToastProvider } from '../contexts/ToastProvider';
 
 export function FirstConnectionPage() {
@@ -12,10 +13,11 @@ export function FirstConnectionPage() {
   const [connectionURL, setConnectionURL] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const { selectedConnection, addConnection } = useConnectionsProvider();
+
   useEffect(() => {
-    const lastConnection = localStorage.getItem('@redis-ui/last-connection-url-input');
-    setConnectionURL(lastConnection || '');
-  }, []);
+    setConnectionURL(selectedConnection?.url || '');
+  }, [selectedConnection]);
 
   const handleConnect = useCallback(
     async (e: FormEvent) => {
@@ -40,7 +42,10 @@ export function FirstConnectionPage() {
         }
 
         addToast({ title: 'Connected', message: 'Connected to Redis', type: 'success' });
-        localStorage.setItem('@redis-ui/last-connection-url-input', connectionURL);
+        addConnection({
+          status: 'active',
+          url: connectionURL
+        });
         navigate(`/${encodeURIComponent(connectionURL)}`);
       } catch (error) {
         addToast({ title: 'Could not connect', message: 'Please check your connection URL', type: 'error' });

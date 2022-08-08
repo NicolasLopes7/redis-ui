@@ -1,4 +1,5 @@
 import { styled } from '../../../stitches.config';
+import { Text } from '../../base';
 
 export const Container = styled('div', {
   display: 'flex',
@@ -22,6 +23,10 @@ export const Container = styled('div', {
       }
     }
   }
+});
+
+export const ConnectionText = styled(Text, {
+  marginRight: 'auto'
 });
 
 export const IndicatorBar = styled('div', {

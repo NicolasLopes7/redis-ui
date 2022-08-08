@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useConnectionsProvider } from '../../contexts/ConnectionsProvider';
 import { Box, Button } from '../base';
 import { Connection } from './Connection';
 import { SidebarGroup, SidebarTitle } from './styles';
@@ -7,9 +8,14 @@ import { SidebarGroup, SidebarTitle } from './styles';
 export function Sidebar() {
   const navigate = useNavigate();
 
+  const { connections, selectConnection } = useConnectionsProvider();
+
   const handleNewConnection = useCallback(() => {
     navigate('/');
+    selectConnection(undefined);
   }, [navigate]);
+
+  if (!connections.length) return null;
 
   return (
     <Box
@@ -29,7 +35,9 @@ export function Sidebar() {
 
       <SidebarGroup>
         <SidebarTitle>RECENT</SidebarTitle>
-        <Connection selected connection={{ url: 'redis: //aeee' }} />
+        {connections.map((connection) => (
+          <Connection key={connection.id} connection={connection} />
+        ))}
       </SidebarGroup>
     </Box>
   );
