@@ -5,7 +5,10 @@ type Connect = (connectionURL: string) => Promise<Redis>;
 const connectionPool: Record<string, Redis> = {};
 export const connect: Connect = async (connectionURL: string) => {
   if (!connectionPool[connectionURL]) {
-    const connection = new Redis(connectionURL);
+    const connection = new Redis(connectionURL, {
+      enableReadyCheck: true,
+      connectTimeout: 15000
+    });
 
     return new Promise((resolve, reject) => {
       connection.once('connect', () => {
@@ -14,8 +17,6 @@ export const connect: Connect = async (connectionURL: string) => {
       });
 
       connection.once('error', (e) => reject(new Error(e)));
-
-      setTimeout(() => reject(new Error(`Timeout on acquiring a new connection at ${connectionURL}`)), 15000);
     });
   }
 
