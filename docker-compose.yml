@@ -6,4 +6,10 @@ services:
     command: redis-server --appendonly yes
     hostname: redis
     ports:
-      - "6379:6379"
+      - '6379:6379'
+  redis-test-redis-ui-2:
+    image: redis
+    command: redis-server --appendonly yes
+    hostname: redis
+    ports:
+      - '1234:6379'
