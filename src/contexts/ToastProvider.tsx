@@ -34,7 +34,7 @@ export function ToastContextProvider({ children }: PropsWithChildren<{}>) {
   const [toasts, setToasts] = useState<Toast[]>([]);
 
   const addToast = useCallback(
-    ({ duration = 3000, message, title, type }: ToastOptions) => {
+    ({ duration = 6000, message, title, type }: ToastOptions) => {
       const newToast = { duration, message, type, title, id: crypto.randomUUID(), createdAt: new Date() };
 
       setToasts([...toasts, newToast]);
