@@ -1,5 +1,5 @@
 # ⚡ Redis UI
-The first open-source project to create an awesome and accessible UI for Redis as a native desktop application. 🚀✨🦄
+The first open-source project to create an awesome and accessible UI for Redis as a native desktop application. ✨🦄
 
 
 ## 🚀 How to develop locally
