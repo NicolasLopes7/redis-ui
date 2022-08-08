@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { Cross1Icon } from '@radix-ui/react-icons';
 import { Toast as IToast } from '../../contexts/ToastProvider';
-import { Toast, ToastTitle, ToastDescription, ToastAction, ToastClose } from '../base/Toast';
+import { Toast, ToastTitle, ToastDescription, ToastClose } from '../base/Toast';
 
 type Props = {
   toast: IToast;
@@ -17,10 +17,10 @@ export function ToastContainer({ toast, closeToast }: Props) {
   );
 
   return (
-    <Toast duration={toast.duration} open onOpenChange={handleOpenChange}>
+    <Toast type={toast.type} duration={toast.duration} open onOpenChange={handleOpenChange}>
       <ToastTitle>{toast?.title}</ToastTitle>
       <ToastDescription>{toast?.message}</ToastDescription>
-      <ToastClose asChild aria-label="Close">
+      <ToastClose asChild aria-label="Close" css={{ color: '$text100' }}>
         <Cross1Icon />
       </ToastClose>
     </Toast>
