@@ -9,7 +9,6 @@ export function FirstConnectionPage() {
 
   const handleConnect = (e: FormEvent) => {
     e.preventDefault();
-    console.log('calling');
     addToast({ title: 'Could not connect', message: 'Please check your connection URL', type: 'error' });
   };
 
