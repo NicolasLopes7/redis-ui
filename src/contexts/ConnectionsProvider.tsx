@@ -21,6 +21,8 @@ type ConnectionsProviderData = {
 
 export const ConnectionsContext = createContext({} as ConnectionsProviderData);
 
+const areConnectionsEqual = (a: SavedConnection, b: SavedConnection) => a.url === b.url;
+
 export function ConnectionsProvider({ children }: PropsWithChildren<{}>) {
   const [connections, setConnections] = useState<SavedConnection[]>([]);
   const [selectedConnection, setSelectedConnection] = useState<SavedConnection>();
@@ -42,6 +44,11 @@ export function ConnectionsProvider({ children }: PropsWithChildren<{}>) {
         id: crypto.randomUUID(),
         ...connection
       };
+
+      const equalConnection = connections.find((c) => areConnectionsEqual(c, newConnection));
+      if (equalConnection) {
+        return;
+      }
 
       setConnections([...connections, newConnection]);
       setSelectedConnection(newConnection);
