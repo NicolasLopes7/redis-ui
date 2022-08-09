@@ -16,7 +16,7 @@ export default handlers.reduce(
       /// @ts-ignore
       const newArgs = await Bluebird.reduce(middlewares, async (_, middleware) => middleware(...args), args);
       /// @ts-ignore
-      handler.fn(...newArgs);
+      return handler.fn(...newArgs);
     }
   }),
   {} as Record<string, Fn<any>>

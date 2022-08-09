@@ -26,4 +26,4 @@ const getKeys = async (_: IpcMainInvokeEvent, connection: Redis, take = 100, ski
   );
 };
 
-export const GetKeysHandler = new Handler('get-keys', getKeys, [connectionMiddleware]);
+export const GetKeysHandler = new Handler('getKeys', getKeys, [connectionMiddleware]);

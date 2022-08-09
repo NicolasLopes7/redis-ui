@@ -12,6 +12,7 @@ const api = {
     ipcRenderer.send('message', message);
   },
   connect: async (connectionURL: string) => ipcRenderer.invoke('connect', connectionURL),
+  getKeys: async (connectionURL: string) => ipcRenderer.invoke('getKeys', connectionURL),
   Minimize: () => {
     ipcRenderer.send('minimize');
   },
