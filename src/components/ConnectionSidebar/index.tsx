@@ -1,7 +1,7 @@
 import { EyeOpenIcon, KeyboardIcon, BackpackIcon } from '@radix-ui/react-icons';
 import React from 'react';
 import { useConnectionsProvider } from '../../contexts/ConnectionsProvider';
-import { Box } from '../base';
+import { Flex } from '../base';
 import { SidebarGroup, SidebarItem } from './styles';
 
 export function ConnectionSidebar() {
@@ -12,14 +12,13 @@ export function ConnectionSidebar() {
   }
 
   return (
-    <Box
+    <Flex
+      direction="column"
+      gap="lg"
       css={{
         background: '$bg50',
         width: '320px',
         minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '24px',
         padding: '32px 0px'
       }}
     >
@@ -36,6 +35,6 @@ export function ConnectionSidebar() {
           <BackpackIcon /> Leave
         </SidebarItem>
       </SidebarGroup>
-    </Box>
+    </Flex>
   );
 }

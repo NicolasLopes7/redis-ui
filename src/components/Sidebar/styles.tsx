@@ -1,5 +1,5 @@
 import { styled } from '../../stitches.config';
-import { Text } from '../base';
+import { Flex, Text } from '../base';
 
 export const SidebarTitle = styled(Text, {
   fontSize: '$sm',
@@ -7,8 +7,10 @@ export const SidebarTitle = styled(Text, {
   fontWeight: 'bold'
 });
 
-export const SidebarGroup = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '8px'
+export const SidebarGroup = styled(Flex, {
+  width: '100%',
+  defaultVariants: {
+    direction: 'column',
+    gap: 'sm'
+  }
 });

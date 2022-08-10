@@ -4,6 +4,7 @@ import { Text } from '../../base';
 export const Container = styled('div', {
   display: 'flex',
   alignItems: 'center',
+  width: '100%',
   padding: '8px',
   minHeight: '40px',
   borderRadius: '4px',

@@ -7,12 +7,7 @@ import { Sidebar } from '../components/Sidebar';
 
 export function InitialLayout() {
   return (
-    <Background
-      css={{
-        display: 'flex',
-        flexDirection: 'row'
-      }}
-    >
+    <Background>
       <Sidebar />
       <Box
         css={{

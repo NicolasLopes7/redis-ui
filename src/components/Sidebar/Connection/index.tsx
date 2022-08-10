@@ -10,13 +10,13 @@ type Props = {
 export function Connection({ connection }: Props) {
   const { removeConnection, selectConnection, selectedConnection } = useConnectionsProvider();
 
-  const selected = useMemo(() => {
+  const isSelected = useMemo(() => {
     return selectedConnection?.id === connection.id;
   }, [selectedConnection, connection]);
 
   return (
-    <Container selected={selected} onClick={() => selectConnection(connection.id)}>
-      <IndicatorBar selected={selected} />
+    <Container selected={isSelected} onClick={() => selectConnection(connection.id)}>
+      <IndicatorBar selected={isSelected} />
       <ConnectionText>{connection.url}</ConnectionText>
 
       <Cross1Icon

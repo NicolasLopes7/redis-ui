@@ -9,11 +9,7 @@ export function ConnectionLayout() {
   if (!selectedConnection) return null;
 
   return (
-    <Background
-      css={{
-        display: 'flex'
-      }}
-    >
+    <Background>
       <ConnectionSidebar />
       <Box
         css={{

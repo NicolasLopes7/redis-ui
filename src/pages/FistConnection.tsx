@@ -1,7 +1,8 @@
 import React, { FormEvent, useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Button } from '../components/base';
+import { Button } from '../components/base';
 import { Card } from '../components/base/Card';
+import { Flex } from '../components/base/Flex';
 import { TextInput } from '../components/base/TextInput';
 import { useConnectionsProvider } from '../contexts/ConnectionsProvider';
 import { useToastProvider } from '../contexts/ToastProvider';
@@ -58,13 +59,12 @@ export function FirstConnectionPage() {
 
   return (
     <Card css={{ gap: '24px', alignItems: 'center', width: '600px' }}>
-      <Box
+      <Flex
         as="form"
+        align="center"
+        gap="md"
         onSubmit={handleConnect}
         css={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '16px',
           padding: '32px 16px'
         }}
       >
@@ -88,7 +88,7 @@ export function FirstConnectionPage() {
         >
           {loading ? 'Connecting...' : 'Connect'}
         </Button>
-      </Box>
+      </Flex>
     </Card>
   );
 }
