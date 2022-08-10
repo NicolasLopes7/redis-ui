@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ToastRenderer } from './components/ToastRenderer';
+import { ConnectionsProvider } from './contexts/ConnectionsProvider';
 import { ToastContextProvider } from './contexts/ToastProvider';
 import './globals.css';
 
@@ -10,8 +11,9 @@ ReactDOM.render(
   <React.StrictMode>
     <ToastContextProvider>
       <ToastRenderer />
-
-      <Router />
+      <ConnectionsProvider>
+        <Router />
+      </ConnectionsProvider>
     </ToastContextProvider>
   </React.StrictMode>,
   document.getElementById('root')

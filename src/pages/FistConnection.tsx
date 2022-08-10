@@ -1,9 +1,11 @@
-import React, { FormEvent, useCallback, useState } from 'react';
+import React, { FormEvent, useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, OutlineButton } from '../../components/base';
-import { Card } from '../../components/base/Card';
-import { TextInput } from '../../components/base/TextInput';
-import { useToastProvider } from '../../contexts/ToastProvider';
+import { Button } from '../components/base';
+import { Card } from '../components/base/Card';
+import { Flex } from '../components/base/Flex';
+import { TextInput } from '../components/base/TextInput';
+import { useConnectionsProvider } from '../contexts/ConnectionsProvider';
+import { useToastProvider } from '../contexts/ToastProvider';
 
 export function FirstConnectionPage() {
   const navigate = useNavigate();
@@ -11,6 +13,12 @@ export function FirstConnectionPage() {
 
   const [connectionURL, setConnectionURL] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const { selectedConnection, addConnection } = useConnectionsProvider();
+
+  useEffect(() => {
+    setConnectionURL(selectedConnection?.url || '');
+  }, [selectedConnection]);
 
   const handleConnect = useCallback(
     async (e: FormEvent) => {
@@ -35,25 +43,28 @@ export function FirstConnectionPage() {
         }
 
         addToast({ title: 'Connected', message: 'Connected to Redis', type: 'success' });
-        navigate(`/${connectionURL}`);
+        addConnection({
+          status: 'active',
+          url: connectionURL
+        });
+        navigate(`/${encodeURIComponent(connectionURL)}`);
       } catch (error) {
         addToast({ title: 'Could not connect', message: 'Please check your connection URL', type: 'error' });
       } finally {
         setLoading(false);
       }
     },
-    [connectionURL]
+    [connectionURL, navigate, addToast]
   );
 
   return (
     <Card css={{ gap: '24px', alignItems: 'center', width: '600px' }}>
-      <Box
+      <Flex
         as="form"
+        align="center"
+        gap="md"
         onSubmit={handleConnect}
         css={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '16px',
           padding: '32px 16px'
         }}
       >
@@ -68,7 +79,7 @@ export function FirstConnectionPage() {
           onChange={(e) => setConnectionURL(e.target.value)}
           value={connectionURL}
         />
-        <OutlineButton
+        <Button
           type="submit"
           disabled={loading}
           css={{
@@ -76,8 +87,8 @@ export function FirstConnectionPage() {
           }}
         >
           {loading ? 'Connecting...' : 'Connect'}
-        </OutlineButton>
-      </Box>
+        </Button>
+      </Flex>
     </Card>
   );
 }

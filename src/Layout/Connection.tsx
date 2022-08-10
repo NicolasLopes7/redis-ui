@@ -1,14 +1,16 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { Box } from '../components/base';
-import { Background } from '../components/base/Background';
-import { Text } from '../components/base/Text';
-import { Sidebar } from '../components/Sidebar';
+import { Background, Box, Text } from '../components/base';
+import { ConnectionSidebar } from '../components/ConnectionSidebar';
+import { useConnectionsProvider } from '../contexts/ConnectionsProvider';
 
-export function InitialLayout() {
+export function ConnectionLayout() {
+  const { selectedConnection } = useConnectionsProvider();
+  if (!selectedConnection) return null;
+
   return (
     <Background>
-      <Sidebar />
+      <ConnectionSidebar />
       <Box
         css={{
           display: 'flex',
@@ -24,7 +26,7 @@ export function InitialLayout() {
             fontSize: '$3xl'
           }}
         >
-          Redis UI
+          {selectedConnection.url}
         </Text>
         <Outlet />
       </Box>

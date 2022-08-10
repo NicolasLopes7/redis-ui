@@ -1,13 +1,9 @@
 import { styled } from '../../stitches.config';
 
-export const OutlineButton = styled('button', {
+export const Button = styled('button', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-
-  padding: '12px 20px',
-  borderRadius: '6px',
-  fontSize: '$md',
 
   cursor: 'pointer',
   border: 'none',
@@ -23,5 +19,24 @@ export const OutlineButton = styled('button', {
 
   '&:active': {
     backgroundColor: '$black300'
+  },
+
+  borderRadius: '6px',
+
+  variants: {
+    size: {
+      sm: {
+        padding: '6px 12px',
+        fontSize: '$sm'
+      },
+      md: {
+        padding: '12px 20px',
+        borderRadius: '6px',
+        fontSize: '$md'
+      }
+    }
+  },
+  defaultVariants: {
+    size: 'md'
   }
 });
