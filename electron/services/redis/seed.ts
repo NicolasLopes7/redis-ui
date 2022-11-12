@@ -24,7 +24,7 @@ const seed = async () => {
   await client.set('products', 'aaa');
   return client
     .pipeline(
-      Object.entries(productsGroupedById).map(([key, value]) => ['set', 'produtcs', key, JSON.stringify(value)])
+      Object.entries(productsGroupedById).map(([key, value]) => ['set', 'products', key, JSON.stringify(value)])
     )
     .exec();
 };
@@ -33,8 +33,10 @@ const seed = async () => {
   try {
     seed();
     console.log('✅ Finished seeding Redis');
+    process.exit(0);
     return;
   } catch (error) {
     console.log('❌ Finished seeding Redis');
+    process.exit(1);
   }
 })();
