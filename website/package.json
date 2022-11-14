@@ -1,0 +1,10 @@
+{
+  "name": "@redis-ui/website",
+  "version": "0.1.0",
+  "main": "main.txt",
+  "dependencies": {
+    "@radix-ui/react-switch": "^1.0.1",
+    "@redis-ui/connections": "workspace:*",
+    "@redis-ui/ui": "workspace:*"
+  }
+}
