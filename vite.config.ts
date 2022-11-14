@@ -2,7 +2,7 @@ import react from '@vitejs/plugin-react';
 import { UserConfig, ConfigEnv } from 'vite';
 import { join } from 'path';
 
-const srcRoot = join(__dirname, 'src');
+const srcRoot = join(__dirname, 'website');
 
 export default ({ command }: ConfigEnv): UserConfig => {
   // DEV
