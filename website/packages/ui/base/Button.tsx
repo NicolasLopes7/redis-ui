@@ -26,7 +26,7 @@ export const Button = styled('button', {
   variants: {
     size: {
       sm: {
-        padding: '6px 12px',
+        padding: '8px 20px',
         fontSize: '$sm'
       },
       md: {

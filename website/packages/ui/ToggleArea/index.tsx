@@ -6,7 +6,7 @@ const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   gap: '$3',
-  padding: '$3',
+  padding: '12px 20px',
 
   width: '100%',
   borderRadius: '6px',

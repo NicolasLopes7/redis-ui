@@ -1,1 +1,1 @@
-export { FirstConnectionWizard } from './components/FirstConnectionWizard';
+export { NewConnectionCard } from './components/NewConnectionCard';

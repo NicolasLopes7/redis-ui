@@ -1,46 +1,49 @@
-import React, { useState } from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import { NewConnection, newConnectionSchema } from '../schemas';
-import { zodResolver } from '@hookform/resolvers/zod';
+import React from 'react';
+import { Control, Controller, FormState, UseFormRegister } from 'react-hook-form';
+import { NewConnection } from '../schemas';
 import { GearIcon, GlobeIcon, LetterCaseCapitalizeIcon, LockClosedIcon, PersonIcon } from '@radix-ui/react-icons';
-import { Card, Flex, TextInput, ToggleArea } from '@redis-ui/ui';
+import { Flex, TextInput, ToggleArea } from '@redis-ui/ui';
 
 type Props = {
-  onSubmit: (data: NewConnection) => void;
+  register: UseFormRegister<NewConnection>;
+  control: Control<NewConnection>;
+  formState: FormState<NewConnection>;
 };
 
 // eslint-disable-next-line react/function-component-definition
-export const NewConnectionForm = ({ onSubmit }: Props) => {
-  const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors }
-  } = useForm<NewConnection>({
-    resolver: zodResolver(newConnectionSchema)
-  });
-
-  console.log({ errors });
-
+export const NewConnectionForm = ({ register, control, formState: { errors } }: Props) => {
   return (
-    <Flex direction={'column'} as="form" gap={'md'} css={{ width: '100%' }} onSubmit={handleSubmit(onSubmit)}>
+    <Flex direction={'column'} gap={'md'} css={{ width: '100%' }}>
       <Flex gap="md" wrap="wrap" css={{ width: '100%' }}>
         <TextInput
           containerCss={{ flex: '7', width: '100%', minWidth: '300px' }}
           LeftIcon={<GlobeIcon />}
           {...register('data.host')}
           placeholder="Host"
+          error={errors.data?.host?.message}
         />
         <TextInput
           containerCss={{ flex: '3', width: '100%', minWidth: '120px' }}
           LeftIcon={<GearIcon />}
-          {...register('data.port', { setValueAs: Number })}
+          {...register('data.port', { setValueAs: (value) => (value ? Number : undefined) })}
           placeholder="Port"
           type={'number'}
+          error={errors.data?.port?.message}
         />
       </Flex>
-      <TextInput LeftIcon={<PersonIcon />} {...register('data.username')} placeholder="Username" />
-      <TextInput LeftIcon={<LockClosedIcon />} {...register('data.password')} type="password" placeholder="Password" />
+      <TextInput
+        LeftIcon={<PersonIcon />}
+        error={errors.data?.username?.message}
+        {...register('data.username')}
+        placeholder="Username"
+      />
+      <TextInput
+        LeftIcon={<LockClosedIcon />}
+        error={errors.data?.password?.message}
+        {...register('data.password')}
+        type="password"
+        placeholder="Password"
+      />
 
       <Controller
         control={control}
@@ -51,16 +54,11 @@ export const NewConnectionForm = ({ onSubmit }: Props) => {
               LeftIcon={<LetterCaseCapitalizeIcon />}
               {...register('metadata.connectionName')}
               placeholder="Connection Name"
+              error={errors.metadata?.connectionName?.message}
             />
           </ToggleArea>
         )}
       />
-
-      <Card.Footer>
-        <Card.FooterActions>
-          <Card.FooterAction>Connect</Card.FooterAction>
-        </Card.FooterActions>
-      </Card.Footer>
     </Flex>
   );
 };

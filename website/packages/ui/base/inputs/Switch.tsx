@@ -8,11 +8,11 @@ const SwitchRoot = styled(RadixSwitch.Root, {
   all: 'unset',
   width: 36,
   height: 22,
-  backgroundColor: '$black100',
+  backgroundColor: '$black300',
   borderRadius: '9999px',
   position: 'relative',
   '&:focus': { boxShadow: `0 0 0 2px white` },
-  '&[data-state="checked"]': { backgroundColor: '$black100' }
+  '&[data-state="checked"]': { backgroundColor: '$black300' }
 });
 
 const SwitchThumb = styled(RadixSwitch.Thumb, {
