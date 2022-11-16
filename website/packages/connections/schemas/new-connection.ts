@@ -5,8 +5,8 @@ export const newConnectionSchema = z.object({
     host: z.string(),
     port: z.number({ required_error: 'Port is required' }),
 
-    username: z.string().min(3, 'Username must contain at least 3 characters'),
-    password: z.string()
+    database: z.string({ required_error: 'Database is required' }),
+    password: z.string().optional()
   }),
   metadata: z.object({
     saveConnection: z.boolean().optional(),

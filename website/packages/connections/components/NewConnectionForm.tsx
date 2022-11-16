@@ -25,7 +25,7 @@ export const NewConnectionForm = ({ register, control, formState: { errors } }: 
         <TextInput
           containerCss={{ flex: '3', width: '100%', minWidth: '120px' }}
           LeftIcon={<GearIcon />}
-          {...register('data.port', { setValueAs: (value) => (value ? Number : undefined) })}
+          {...register('data.port', { setValueAs: (value) => (value ? Number(value) : undefined) })}
           placeholder="Port"
           type={'number'}
           error={errors.data?.port?.message}
@@ -33,8 +33,8 @@ export const NewConnectionForm = ({ register, control, formState: { errors } }: 
       </Flex>
       <TextInput
         LeftIcon={<PersonIcon />}
-        error={errors.data?.username?.message}
-        {...register('data.username')}
+        error={errors.data?.database?.message}
+        {...register('data.database')}
         placeholder="Username"
       />
       <TextInput
