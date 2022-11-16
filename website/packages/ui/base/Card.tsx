@@ -46,7 +46,7 @@ export const HeaderAction = styled('button', {
 
 export const Footer = styled('div', {
   display: 'flex',
-  justifyContent: 'space-between',
+  justifyContent: 'flex-end',
   alignItems: 'center',
   width: '100%',
   borderTop: '1px solid #eee',
