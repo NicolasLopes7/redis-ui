@@ -1,4 +1,5 @@
-import { RootProvider } from '@redis-ui/ui/contexts';
+import { RootProvider as RootUIProvider } from '@redis-ui/ui/contexts';
+import { RootProvider as RootConnectionsProvider } from '@redis-ui/connections';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ConnectionsProvider } from './contexts/ConnectionsProvider';
@@ -7,11 +8,13 @@ import { Router } from './router';
 
 ReactDOM.render(
   <React.StrictMode>
-    <RootProvider>
-      <ConnectionsProvider>
-        <Router />
-      </ConnectionsProvider>
-    </RootProvider>
+    <RootUIProvider>
+      <RootConnectionsProvider>
+        <ConnectionsProvider>
+          <Router />
+        </ConnectionsProvider>
+      </RootConnectionsProvider>
+    </RootUIProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
