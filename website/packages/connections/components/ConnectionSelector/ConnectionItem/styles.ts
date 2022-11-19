@@ -22,8 +22,11 @@ CloseAction.toString = () => '.close-action';
 
 export const Container = styled('div', {
   display: 'flex',
+  flexDirection: 'column',
+
   position: 'relative',
 
+  border: 'none',
   borderLeftWidth: '4px',
   borderLeftStyle: 'solid',
   borderRadius: '6px',
@@ -41,9 +44,11 @@ export const Container = styled('div', {
     outline: '1px solid $colors$white'
   },
 
-  '&:hover': {
-    backgroundColor: '$black200',
+  '&:hover, &:active': {
+    backgroundColor: '$black200'
+  },
 
+  '&:hover': {
     [`& ${CloseAction}`]: {
       opacity: 1
     }
@@ -64,7 +69,8 @@ export const Container = styled('div', {
 export const ContentContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  alignItems: 'start',
 
-  gap: '$sm',
+  gap: '4px',
   width: '100%'
 });

@@ -13,7 +13,7 @@ type Props = {
 
 export function ConnectionItem({ isSelected, connection, onSelect, onRemove }: Props) {
   return (
-    <Container tabIndex={0} isSelected={isSelected} onClick={onSelect}>
+    <Container as="button" tabIndex={0} isSelected={isSelected} onClick={onSelect}>
       <CloseAction onClick={onRemove} />
       <ContentContainer>
         <Text
@@ -26,7 +26,7 @@ export function ConnectionItem({ isSelected, connection, onSelect, onRemove }: P
         </Text>
 
         <Text css={{ color: '$text200' }}>
-          {connection.host}:${connection.port}
+          {connection.host}:{connection.port}
         </Text>
       </ContentContainer>
     </Container>
