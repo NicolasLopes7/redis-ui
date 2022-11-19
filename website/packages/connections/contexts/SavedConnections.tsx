@@ -1,7 +1,7 @@
 import React, { createContext, PropsWithChildren, useCallback, useContext, useState } from 'react';
 import { useLocalStorageSync } from '../../../hooks/useLocalStorageSync';
 
-type SavedConnection = {
+export type SavedConnection = {
   name?: string;
   host: string;
   port: number;
@@ -11,6 +11,7 @@ type SavedConnection = {
 
 type SavedConnectionsData = {
   connections: SavedConnection[];
+  hasSavedConnections: boolean;
 
   saveConnection: (connection: SavedConnection) => void;
 };
@@ -32,8 +33,10 @@ export function SavedConnectionsProvider({ children }: PropsWithChildren) {
     });
   }, []);
 
+  const hasSavedConnections = connections.length > 0;
+
   return (
-    <SavedConnectionsContext.Provider value={{ connections, saveConnection }}>
+    <SavedConnectionsContext.Provider value={{ connections, saveConnection, hasSavedConnections }}>
       {children}
     </SavedConnectionsContext.Provider>
   );
