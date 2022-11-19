@@ -1,10 +1,9 @@
 import React from 'react';
-import { useConnectionsProvider } from '../contexts/ConnectionsProvider';
-import { NewConnectionCard } from '@redis-ui/connections';
+import { NewConnectionCard, useSavedConnections } from '@redis-ui/connections';
 
 export function InitialPage() {
-  const { hasConnections } = useConnectionsProvider();
-  if (!hasConnections) {
+  const { hasSavedConnections } = useSavedConnections();
+  if (!hasSavedConnections) {
     return <NewConnectionCard />;
   }
 
