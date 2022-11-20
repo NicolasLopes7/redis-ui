@@ -21,7 +21,7 @@ export function ConnectionSelector({ connections, selectedConnection, onSelect, 
       gap="lg"
       css={{
         background: '$bg50',
-        width: '360px',
+        minWidth: '360px',
         minHeight: '100vh',
         padding: '32px 20px'
       }}

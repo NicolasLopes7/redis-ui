@@ -5,7 +5,6 @@ import { Text } from './Text';
 export const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  width: '100%',
   padding: '$4',
   background: '$bg50',
   borderRadius: '12px',

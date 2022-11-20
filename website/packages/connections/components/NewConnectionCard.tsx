@@ -1,21 +1,55 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Card } from '@redis-ui/ui';
-import React, { useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useSavedConnections } from '../contexts';
 import { NewConnection, newConnectionSchema } from '../schemas';
 import { NewConnectionForm } from './NewConnectionForm';
 
 type Props = {
-  defaultValues?: NewConnection;
+  selectedConnection?: NewConnection;
   onSubmit: (connection: NewConnection) => void;
 };
 
-export function NewConnectionCard({ defaultValues, onSubmit }: Props) {
-  const { register, handleSubmit, control, formState } = useForm<NewConnection>({
+const defaultValues: Partial<NewConnection> = {
+  data: {
+    database: '',
+    host: '',
+    port: '',
+    password: ''
+  },
+  metadata: {
+    connectionName: '',
+    saveConnection: false
+  }
+};
+
+export function NewConnectionCard({ selectedConnection, onSubmit }: Props) {
+  const { register, handleSubmit, reset, control, formState } = useForm<NewConnection>({
     resolver: zodResolver(newConnectionSchema),
     defaultValues
   });
+
+  useEffect(() => {
+    console.log('calling reset');
+    if (!selectedConnection) {
+      reset(defaultValues);
+      // reset({
+      //   data: {
+      //     database: '',
+      //     host: '',
+      //     password: '',
+      //     port: undefined
+      //   },
+      //   metadata: {
+      //     connectionName: '',
+      //     saveConnection: false
+      //   }
+      // });
+      return;
+    }
+
+    reset(selectedConnection);
+  }, [selectedConnection]);
 
   return (
     <Card.Container css={{ alignItems: 'center', gap: '$3' }} as={'form'} onSubmit={handleSubmit(onSubmit)}>
