@@ -5,7 +5,7 @@ export type SavedConnection = {
   name?: string;
   host: string;
   port: number;
-  database?: string;
+  database: string;
   password?: string;
 };
 
@@ -13,6 +13,7 @@ type SavedConnectionsData = {
   connections: SavedConnection[];
   hasSavedConnections: boolean;
 
+  removeConnection: (connection: SavedConnection) => void;
   saveConnection: (connection: SavedConnection) => void;
 };
 
@@ -33,10 +34,14 @@ export function SavedConnectionsProvider({ children }: PropsWithChildren) {
     });
   }, []);
 
+  const removeConnection = useCallback((connectionToRemove: SavedConnection) => {
+    setConnections((connections) => connections.filter((connection) => connection.name === connectionToRemove.name));
+  }, []);
+
   const hasSavedConnections = connections.length > 0;
 
   return (
-    <SavedConnectionsContext.Provider value={{ connections, saveConnection, hasSavedConnections }}>
+    <SavedConnectionsContext.Provider value={{ connections, saveConnection, removeConnection, hasSavedConnections }}>
       {children}
     </SavedConnectionsContext.Provider>
   );

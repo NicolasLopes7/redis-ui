@@ -13,6 +13,8 @@ type Props = {
 };
 
 export function ConnectionSelector({ connections, selectedConnection, onSelect, onRemove }: Props) {
+  if (!connections.length) return null;
+
   return (
     <Flex
       direction="column"
