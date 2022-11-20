@@ -4,7 +4,7 @@ import { useLocalStorageSync } from '../../../hooks/useLocalStorageSync';
 export type SavedConnection = {
   name?: string;
   host: string;
-  port: number;
+  port: string;
   database: string;
   password?: string;
 };

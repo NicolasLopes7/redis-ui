@@ -1,7 +1,7 @@
 import React from 'react';
 import { Control, Controller, FormState, UseFormRegister } from 'react-hook-form';
 import { NewConnection } from '../schemas';
-import { GearIcon, GlobeIcon, LetterCaseCapitalizeIcon, LockClosedIcon, PersonIcon } from '@radix-ui/react-icons';
+import { CubeIcon, GearIcon, GlobeIcon, LetterCaseCapitalizeIcon, LockClosedIcon } from '@radix-ui/react-icons';
 import { Flex, TextInput, ToggleArea } from '@redis-ui/ui';
 
 type Props = {
@@ -25,17 +25,17 @@ export const NewConnectionForm = ({ register, control, formState: { errors } }: 
         <TextInput
           containerCss={{ flex: '3', width: '100%', minWidth: '120px' }}
           LeftIcon={<GearIcon />}
-          {...register('data.port', { setValueAs: (value) => (value ? Number(value) : undefined) })}
+          {...register('data.port')}
           placeholder="Port"
           type={'number'}
           error={errors.data?.port?.message}
         />
       </Flex>
       <TextInput
-        LeftIcon={<PersonIcon />}
+        LeftIcon={<CubeIcon />}
         error={errors.data?.database?.message}
         {...register('data.database')}
-        placeholder="Username"
+        placeholder="Database"
       />
       <TextInput
         LeftIcon={<LockClosedIcon />}

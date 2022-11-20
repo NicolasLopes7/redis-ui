@@ -14,7 +14,6 @@ export function InitialPage() {
       const { host, password, port, database } = connection.data;
 
       const connectionURL = `redis://${password ? `:${password}@` : ''}${host}:${port}/${database}`;
-      console.log({ connectionURL });
 
       const response = await window.Main.connect(connectionURL);
       if (!response) {
@@ -43,15 +42,16 @@ export function InitialPage() {
       <Flex
         direction={'column'}
         css={{
-          padding: '$4',
           width: '100%',
+          padding: '$4',
+          flexGrow: 0,
           minHeight: '100vh',
           alignItems: 'center',
           justifyContent: 'center'
         }}
       >
         <NewConnectionCard
-          defaultValues={
+          selectedConnection={
             selectedConnection
               ? {
                   data: selectedConnection,
