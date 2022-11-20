@@ -19,9 +19,9 @@ export function SavedConnectionsProvider({ children }: PropsWithChildren) {
 
   const saveConnection = useCallback((newConnection: Connection) => {
     setConnections((connections) => {
-      if (connections.find((connection) => connection.metadata.connectionName === connection.metadata.connectionName)) {
+      if (connections.find((connection) => connection.metadata.name === connection.metadata.name)) {
         return connections.map((connection) =>
-          connection.metadata.connectionName === newConnection.metadata.connectionName ? newConnection : connection
+          connection.metadata.name === newConnection.metadata.name ? newConnection : connection
         );
       }
 
@@ -31,9 +31,7 @@ export function SavedConnectionsProvider({ children }: PropsWithChildren) {
 
   const removeConnection = useCallback((connectionToRemove: Connection) => {
     setConnections((connections) =>
-      connections.filter(
-        (connection) => connection.metadata.connectionName === connectionToRemove.metadata.connectionName
-      )
+      connections.filter((connection) => connection.metadata.name === connectionToRemove.metadata.name)
     );
   }, []);
 

@@ -18,7 +18,7 @@ const defaultValues: Partial<Connection> = {
     password: ''
   },
   metadata: {
-    connectionName: '',
+    name: '',
     saveConnection: false
   }
 };

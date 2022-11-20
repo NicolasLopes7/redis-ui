@@ -36,9 +36,9 @@ export function ConnectionSelector({ connections, selectedConnection, onSelect, 
       >
         {connections.map((connection) => (
           <ConnectionItem
-            key={connection.metadata.connectionName}
+            key={connection.metadata.name}
             connection={connection}
-            isSelected={selectedConnection?.metadata.connectionName === connection.metadata.connectionName}
+            isSelected={selectedConnection?.metadata.name === connection.metadata.name}
             onSelect={() => onSelect(connection)}
             onRemove={() => onRemove(connection)}
           />

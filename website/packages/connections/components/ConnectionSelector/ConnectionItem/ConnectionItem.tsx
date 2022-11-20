@@ -22,7 +22,7 @@ export function ConnectionItem({ isSelected, connection, onSelect, onRemove }: P
             color: '$white'
           }}
         >
-          {connection.metadata.connectionName}
+          {connection.metadata.name}
         </Text>
 
         <Text css={{ color: '$text200' }}>
