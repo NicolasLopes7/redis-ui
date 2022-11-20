@@ -1,2 +1,3 @@
-export { NewConnectionCard } from './components/NewConnectionCard';
+export * from './components';
 export * from './contexts';
+export * from './schemas';

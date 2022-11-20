@@ -2,8 +2,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Card } from '@redis-ui/ui';
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { NewConnection, newConnectionSchema } from '../schemas';
-import { NewConnectionForm } from './NewConnectionForm';
+import { NewConnection, newConnectionSchema } from '../../schemas';
+import { SetupConnectionForm } from './SetupConnectionForm';
 
 type Props = {
   selectedConnection?: NewConnection;
@@ -23,28 +23,15 @@ const defaultValues: Partial<NewConnection> = {
   }
 };
 
-export function NewConnectionCard({ selectedConnection, onSubmit }: Props) {
+export function SetupConnection({ selectedConnection, onSubmit }: Props) {
   const { register, handleSubmit, reset, control, formState } = useForm<NewConnection>({
     resolver: zodResolver(newConnectionSchema),
     defaultValues
   });
 
   useEffect(() => {
-    console.log('calling reset');
     if (!selectedConnection) {
       reset(defaultValues);
-      // reset({
-      //   data: {
-      //     database: '',
-      //     host: '',
-      //     password: '',
-      //     port: undefined
-      //   },
-      //   metadata: {
-      //     connectionName: '',
-      //     saveConnection: false
-      //   }
-      // });
       return;
     }
 
@@ -60,7 +47,7 @@ export function NewConnectionCard({ selectedConnection, onSubmit }: Props) {
         </Card.HeaderActions>
       </Card.Header>
 
-      <NewConnectionForm control={control} formState={formState} register={register} />
+      <SetupConnectionForm control={control} formState={formState} register={register} />
 
       <Card.Footer>
         <Card.FooterActions>
