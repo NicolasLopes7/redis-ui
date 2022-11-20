@@ -10,7 +10,7 @@ export const connectionSchema = z.object({
   }),
   metadata: z.object({
     saveConnection: z.boolean().optional(),
-    connectionName: z.string().optional()
+    name: z.string().optional()
   })
 });
 
