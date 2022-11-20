@@ -2,15 +2,15 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Card } from '@redis-ui/ui';
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { NewConnection, newConnectionSchema } from '../../schemas';
+import { Connection, connectionSchema } from '../../schemas';
 import { SetupConnectionForm } from './SetupConnectionForm';
 
 type Props = {
-  selectedConnection?: NewConnection;
-  onSubmit: (connection: NewConnection) => void;
+  selectedConnection?: Connection;
+  onSubmit: (connection: Connection) => void;
 };
 
-const defaultValues: Partial<NewConnection> = {
+const defaultValues: Partial<Connection> = {
   data: {
     database: '',
     host: '',
@@ -24,8 +24,8 @@ const defaultValues: Partial<NewConnection> = {
 };
 
 export function SetupConnection({ selectedConnection, onSubmit }: Props) {
-  const { register, handleSubmit, reset, control, formState } = useForm<NewConnection>({
-    resolver: zodResolver(newConnectionSchema),
+  const { register, handleSubmit, reset, control, formState } = useForm<Connection>({
+    resolver: zodResolver(connectionSchema),
     defaultValues
   });
 
