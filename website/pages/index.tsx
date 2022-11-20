@@ -1,17 +1,11 @@
 import React, { useCallback, useState } from 'react';
 
-import {
-  ConnectionSelector,
-  SavedConnection,
-  SetupConnection,
-  useSavedConnections,
-  Connection
-} from '@redis-ui/connections';
+import { ConnectionSelector, SetupConnection, useSavedConnections, Connection } from '@redis-ui/connections';
 
 import { Background, Flex } from '@redis-ui/ui';
 
 export function InitialPage() {
-  const [selectedConnection, setSelectedConnection] = useState<SavedConnection>();
+  const [selectedConnection, setSelectedConnection] = useState<Connection>();
   const { connections, saveConnection, removeConnection } = useSavedConnections();
 
   const handleConnect = useCallback(async (connection: Connection) => {
@@ -26,13 +20,7 @@ export function InitialPage() {
       }
 
       if (connection.metadata.saveConnection) {
-        saveConnection({
-          host,
-          password,
-          name: connection.metadata.connectionName,
-          port,
-          database
-        });
+        saveConnection(connection);
       }
 
       console.log('Able to connect!');
@@ -55,20 +43,7 @@ export function InitialPage() {
           justifyContent: 'center'
         }}
       >
-        <SetupConnection
-          selectedConnection={
-            selectedConnection
-              ? {
-                  data: selectedConnection,
-                  metadata: {
-                    saveConnection: true,
-                    connectionName: selectedConnection.name
-                  }
-                }
-              : undefined
-          }
-          onSubmit={handleConnect}
-        />
+        <SetupConnection selectedConnection={selectedConnection} onSubmit={handleConnect} />
       </Flex>
     </Background>
   );

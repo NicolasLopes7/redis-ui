@@ -1,10 +1,10 @@
 import { Text } from '@redis-ui/ui';
 import React from 'react';
-import { SavedConnection } from '../../../contexts/SavedConnections';
+import { Connection } from '../../../schemas';
 import { CloseAction, Container, ContentContainer } from './styles';
 
 type Props = {
-  connection: SavedConnection;
+  connection: Connection;
   isSelected: boolean;
 
   onSelect: () => void;
@@ -22,11 +22,11 @@ export function ConnectionItem({ isSelected, connection, onSelect, onRemove }: P
             color: '$white'
           }}
         >
-          {connection.name}
+          {connection.metadata.connectionName}
         </Text>
 
         <Text css={{ color: '$text200' }}>
-          {connection.host}:{connection.port}
+          {connection.data.host}:{connection.data.port}
         </Text>
       </ContentContainer>
     </Container>

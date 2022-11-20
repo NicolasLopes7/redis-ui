@@ -1,55 +1,54 @@
 import React, { createContext, PropsWithChildren, useCallback, useContext, useState } from 'react';
 import { useLocalStorageSync } from '../../../hooks/useLocalStorageSync';
-
-export type SavedConnection = {
-  name?: string;
-  host: string;
-  port: string;
-  database: string;
-  password?: string;
-};
+import { Connection } from '../schemas';
 
 type SavedConnectionsData = {
-  connections: SavedConnection[];
+  connections: Connection[];
   hasSavedConnections: boolean;
 
-  removeConnection: (connection: SavedConnection) => void;
-  saveConnection: (connection: SavedConnection) => void;
+  removeConnection: (connection: Connection) => void;
+  saveConnection: (connection: Connection) => void;
 };
 
-const SavedConnectionsContext = createContext<SavedConnectionsData | null>(null);
+const ConnectionsContext = createContext<SavedConnectionsData | null>(null);
 
 export function SavedConnectionsProvider({ children }: PropsWithChildren) {
-  const [connections, setConnections] = useState<SavedConnection[]>([]);
+  const [connections, setConnections] = useState<Connection[]>([]);
 
   useLocalStorageSync('SAVED_CONNECTIONS', connections, setConnections);
 
-  const saveConnection = useCallback((newConnection: SavedConnection) => {
+  const saveConnection = useCallback((newConnection: Connection) => {
     setConnections((connections) => {
-      if (connections.find((connection) => connection.name === newConnection.name)) {
-        return connections.map((connection) => (connection.name === newConnection.name ? newConnection : connection));
+      if (connections.find((connection) => connection.metadata.connectionName === connection.metadata.connectionName)) {
+        return connections.map((connection) =>
+          connection.metadata.connectionName === newConnection.metadata.connectionName ? newConnection : connection
+        );
       }
 
       return [newConnection, ...connections];
     });
   }, []);
 
-  const removeConnection = useCallback((connectionToRemove: SavedConnection) => {
-    setConnections((connections) => connections.filter((connection) => connection.name === connectionToRemove.name));
+  const removeConnection = useCallback((connectionToRemove: Connection) => {
+    setConnections((connections) =>
+      connections.filter(
+        (connection) => connection.metadata.connectionName === connectionToRemove.metadata.connectionName
+      )
+    );
   }, []);
 
   const hasSavedConnections = connections.length > 0;
 
   return (
-    <SavedConnectionsContext.Provider value={{ connections, saveConnection, removeConnection, hasSavedConnections }}>
+    <ConnectionsContext.Provider value={{ connections, saveConnection, removeConnection, hasSavedConnections }}>
       {children}
-    </SavedConnectionsContext.Provider>
+    </ConnectionsContext.Provider>
   );
 }
 
 export const useSavedConnections = () => {
-  const context = useContext(SavedConnectionsContext);
-  if (!context) throw new Error('useSavedConnections must be called within a SavedConnectionsProvider');
+  const context = useContext(ConnectionsContext);
+  if (!context) throw new Error('useConnections must be called within a SavedConnectionsProvider');
 
   return context;
 };

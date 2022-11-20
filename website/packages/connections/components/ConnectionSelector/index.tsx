@@ -1,15 +1,15 @@
 import { Flex } from '@redis-ui/ui';
 import React from 'react';
-import { SavedConnection } from '../../contexts/SavedConnections';
+import { Connection } from '../../schemas';
 import { ConnectionItem } from './ConnectionItem/ConnectionItem';
 import { NewConnectionButton } from './NewConnectionButton';
 
 type Props = {
-  connections: SavedConnection[];
-  selectedConnection?: SavedConnection;
+  connections: Connection[];
+  selectedConnection?: Connection;
 
-  onSelect: (connection?: SavedConnection) => void;
-  onRemove: (connection: SavedConnection) => void;
+  onSelect: (connection?: Connection) => void;
+  onRemove: (connection: Connection) => void;
 };
 
 export function ConnectionSelector({ connections, selectedConnection, onSelect, onRemove }: Props) {
@@ -36,9 +36,9 @@ export function ConnectionSelector({ connections, selectedConnection, onSelect, 
       >
         {connections.map((connection) => (
           <ConnectionItem
-            key={connection.name}
+            key={connection.metadata.connectionName}
             connection={connection}
-            isSelected={selectedConnection?.name === connection.name}
+            isSelected={selectedConnection?.metadata.connectionName === connection.metadata.connectionName}
             onSelect={() => onSelect(connection)}
             onRemove={() => onRemove(connection)}
           />
