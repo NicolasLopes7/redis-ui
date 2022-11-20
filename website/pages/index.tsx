@@ -1,9 +1,14 @@
 import React, { useCallback, useState } from 'react';
-import { NewConnectionCard, useSavedConnections } from '@redis-ui/connections';
+
+import {
+  ConnectionSelector,
+  SavedConnection,
+  SetupConnection,
+  useSavedConnections,
+  NewConnection
+} from '@redis-ui/connections';
+
 import { Background, Flex } from '@redis-ui/ui';
-import { ConnectionSelector } from '@redis-ui/connections/components/ConnectionSelector';
-import { SavedConnection } from '@redis-ui/connections/contexts/SavedConnections';
-import { NewConnection } from '@redis-ui/connections/schemas';
 
 export function InitialPage() {
   const [selectedConnection, setSelectedConnection] = useState<SavedConnection>();
@@ -50,7 +55,7 @@ export function InitialPage() {
           justifyContent: 'center'
         }}
       >
-        <NewConnectionCard
+        <SetupConnection
           selectedConnection={
             selectedConnection
               ? {

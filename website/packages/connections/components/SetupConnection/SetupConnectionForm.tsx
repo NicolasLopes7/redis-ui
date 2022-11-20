@@ -1,6 +1,6 @@
 import React from 'react';
 import { Control, Controller, FormState, UseFormRegister } from 'react-hook-form';
-import { NewConnection } from '../schemas';
+import { NewConnection } from '../../schemas';
 import { CubeIcon, GearIcon, GlobeIcon, LetterCaseCapitalizeIcon, LockClosedIcon } from '@radix-ui/react-icons';
 import { Flex, TextInput, ToggleArea } from '@redis-ui/ui';
 
@@ -11,7 +11,7 @@ type Props = {
 };
 
 // eslint-disable-next-line react/function-component-definition
-export const NewConnectionForm = ({ register, control, formState: { errors } }: Props) => {
+export const SetupConnectionForm = ({ register, control, formState: { errors } }: Props) => {
   return (
     <Flex direction={'column'} gap={'md'} css={{ width: '100%' }}>
       <Flex gap="md" wrap="wrap" css={{ width: '100%' }}>
