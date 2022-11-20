@@ -5,7 +5,7 @@ import {
   SavedConnection,
   SetupConnection,
   useSavedConnections,
-  NewConnection
+  Connection
 } from '@redis-ui/connections';
 
 import { Background, Flex } from '@redis-ui/ui';
@@ -14,7 +14,7 @@ export function InitialPage() {
   const [selectedConnection, setSelectedConnection] = useState<SavedConnection>();
   const { connections, saveConnection, removeConnection } = useSavedConnections();
 
-  const handleConnect = useCallback(async (connection: NewConnection) => {
+  const handleConnect = useCallback(async (connection: Connection) => {
     try {
       const { host, password, port, database } = connection.data;
 

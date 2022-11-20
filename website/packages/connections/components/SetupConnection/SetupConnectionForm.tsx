@@ -1,13 +1,13 @@
 import React from 'react';
 import { Control, Controller, FormState, UseFormRegister } from 'react-hook-form';
-import { NewConnection } from '../../schemas';
+import { Connection } from '../../schemas';
 import { CubeIcon, GearIcon, GlobeIcon, LetterCaseCapitalizeIcon, LockClosedIcon } from '@radix-ui/react-icons';
 import { Flex, TextInput, ToggleArea } from '@redis-ui/ui';
 
 type Props = {
-  register: UseFormRegister<NewConnection>;
-  control: Control<NewConnection>;
-  formState: FormState<NewConnection>;
+  register: UseFormRegister<Connection>;
+  control: Control<Connection>;
+  formState: FormState<Connection>;
 };
 
 // eslint-disable-next-line react/function-component-definition

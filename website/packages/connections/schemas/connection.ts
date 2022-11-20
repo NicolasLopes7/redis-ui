@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const newConnectionSchema = z.object({
+export const connectionSchema = z.object({
   data: z.object({
     host: z.string({ required_error: 'Host is required' }).min(1, 'Host is required'),
     port: z.string({ required_error: 'Port is required' }).min(1, 'Port is required'),
@@ -14,4 +14,4 @@ export const newConnectionSchema = z.object({
   })
 });
 
-export type NewConnection = z.infer<typeof newConnectionSchema>;
+export type Connection = z.infer<typeof connectionSchema>;
