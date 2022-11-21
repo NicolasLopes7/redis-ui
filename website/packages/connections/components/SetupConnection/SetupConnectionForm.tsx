@@ -2,7 +2,7 @@ import React from 'react';
 import { Control, Controller, FormState, UseFormRegister } from 'react-hook-form';
 import { Connection } from '../../schemas';
 import { CubeIcon, GearIcon, GlobeIcon, LetterCaseCapitalizeIcon, LockClosedIcon } from '@radix-ui/react-icons';
-import { Flex, TextInput, ToggleArea } from '@redis-ui/ui';
+import { Flex, Stack, TextInput, ToggleArea } from '@redis-ui/ui';
 
 type Props = {
   register: UseFormRegister<Connection>;
@@ -13,8 +13,8 @@ type Props = {
 // eslint-disable-next-line react/function-component-definition
 export const SetupConnectionForm = ({ register, control, formState: { errors } }: Props) => {
   return (
-    <Flex direction={'column'} gap={'md'} css={{ width: '100%' }}>
-      <Flex gap="md" wrap="wrap" css={{ width: '100%' }}>
+    <Stack direction={'column'} spacing={'md'} width="full">
+      <Stack spacing="md" direction={'row'} wrap width="full">
         <TextInput
           containerCss={{ flex: '7', width: '100%', minWidth: '300px' }}
           LeftIcon={<GlobeIcon />}
@@ -30,7 +30,7 @@ export const SetupConnectionForm = ({ register, control, formState: { errors } }
           type={'number'}
           error={errors.data?.port?.message}
         />
-      </Flex>
+      </Stack>
       <TextInput
         LeftIcon={<CubeIcon />}
         error={errors.data?.database?.message}
@@ -59,6 +59,6 @@ export const SetupConnectionForm = ({ register, control, formState: { errors } }
           </ToggleArea>
         )}
       />
-    </Flex>
+    </Stack>
   );
 };

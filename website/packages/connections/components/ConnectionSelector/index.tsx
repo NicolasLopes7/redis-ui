@@ -1,4 +1,4 @@
-import { Flex } from '@redis-ui/ui';
+import { Flex, Stack } from '@redis-ui/ui';
 import React from 'react';
 import { Connection } from '../../schemas';
 import { ConnectionItem } from './ConnectionItem/ConnectionItem';
@@ -16,9 +16,9 @@ export function ConnectionSelector({ connections, selectedConnection, onSelect, 
   if (!connections.length) return null;
 
   return (
-    <Flex
+    <Stack
       direction="column"
-      gap="lg"
+      spacing="lg"
       css={{
         background: '$gray100',
         minWidth: '360px',
@@ -26,14 +26,7 @@ export function ConnectionSelector({ connections, selectedConnection, onSelect, 
         p: '32px 20px'
       }}
     >
-      <Flex
-        direction={'column'}
-        align="center"
-        gap={'md'}
-        css={{
-          width: '100%'
-        }}
-      >
+      <Stack direction={'column'} align="center" spacing={'md'} width="full">
         {connections.map((connection) => (
           <ConnectionItem
             key={connection.metadata.name}
@@ -45,7 +38,7 @@ export function ConnectionSelector({ connections, selectedConnection, onSelect, 
         ))}
 
         <NewConnectionButton onClick={() => onSelect()} />
-      </Flex>
-    </Flex>
+      </Stack>
+    </Stack>
   );
 }

@@ -39,7 +39,7 @@ export function SetupConnection({ selectedConnection, onSubmit }: Props) {
   }, [selectedConnection]);
 
   return (
-    <Card.Container css={{ alignItems: 'center', gap: '$3' }} as={'form'} onSubmit={handleSubmit(onSubmit)}>
+    <Card.Container as={'form'} onSubmit={handleSubmit(onSubmit)}>
       <Card.Header>
         <Card.Title>Setup Connection</Card.Title>
         <Card.HeaderActions>
