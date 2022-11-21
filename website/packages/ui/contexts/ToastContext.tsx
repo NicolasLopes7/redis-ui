@@ -24,7 +24,7 @@ export type ToastData = {
 } & ToastOptions;
 
 export type ToastContextData = {
-  addToast: (options: ToastOptions) => void;
+  addToast: (options: ToastOptions) => { data: ToastData; remove: () => void };
   closeToast: (id: string) => void;
   activeToasts: ToastData[];
 };
@@ -34,22 +34,21 @@ export const ToastContext = createContext<ToastContextData | null>(null);
 export function ToastContextProvider({ children }: PropsWithChildren<{}>) {
   const [toasts, setToasts] = useState<ToastData[]>([]);
 
-  const addToast = useCallback(
-    ({ duration = 6000, message, title, type }: ToastOptions) => {
-      const newToast = { duration, message, type, title, id: crypto.randomUUID(), createdAt: new Date() };
+  const closeToast = useCallback((id: string) => {
+    setToasts((toasts) => toasts.filter((toast) => toast.id !== id));
+  }, []);
 
-      setToasts([...toasts, newToast]);
-    },
-    [toasts]
-  );
+  const addToast = useCallback(({ duration = 6000, message, title, type }: ToastOptions) => {
+    const id = crypto.randomUUID();
+    const newToast = { duration, message, type, title, id, createdAt: new Date() };
 
-  const closeToast = useCallback(
-    (id: string) => {
-      const newToasts = toasts.filter((toast) => toast.id !== id);
-      setToasts(newToasts);
-    },
-    [toasts]
-  );
+    setToasts((toasts) => [...toasts, newToast]);
+
+    return {
+      data: newToast,
+      remove: () => closeToast(id)
+    };
+  }, []);
 
   return (
     <ToastContext.Provider value={{ addToast, closeToast, activeToasts: toasts }}>
