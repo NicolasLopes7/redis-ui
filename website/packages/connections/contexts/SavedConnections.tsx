@@ -19,7 +19,7 @@ export function SavedConnectionsProvider({ children }: PropsWithChildren) {
 
   const saveConnection = useCallback((newConnection: Connection) => {
     setConnections((connections) => {
-      if (connections.find((connection) => connection.metadata.name === connection.metadata.name)) {
+      if (connections.find((connection) => connection.metadata.name === newConnection.metadata.name)) {
         return connections.map((connection) =>
           connection.metadata.name === newConnection.metadata.name ? newConnection : connection
         );
