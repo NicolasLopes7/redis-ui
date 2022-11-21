@@ -1,7 +1,7 @@
 import React, { forwardRef, ReactNode } from 'react';
 import { CSS } from '../../stitches.config';
-import { Box } from '../Box';
-import { Flex } from '../Flex';
+import { Box } from '../../layout/Box';
+import { Flex } from '../../layout/Flex';
 import { Text } from '../Text';
 import { BaseInput, BaseInputProps } from './Base';
 

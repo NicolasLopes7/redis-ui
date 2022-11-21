@@ -1,7 +1,7 @@
 import * as RadixSwitch from '@radix-ui/react-switch';
 import React, { PropsWithChildren } from 'react';
 import { styled } from '../../stitches.config';
-import { Flex } from '../Flex';
+import { Flex } from '../../layout/Flex';
 import { Text } from '../Text';
 
 const SwitchRoot = styled(RadixSwitch.Root, {
