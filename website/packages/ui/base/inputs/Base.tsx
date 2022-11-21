@@ -2,7 +2,7 @@ import { styled } from '../../stitches.config';
 
 export const BaseInput = styled('input', {
   fontSize: '$md',
-  padding: '12px 20px',
+  p: '12px 20px',
   border: 'none',
   borderRadius: '6px',
   background: '$gray200',

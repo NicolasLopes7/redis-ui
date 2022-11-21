@@ -24,11 +24,11 @@ const StyledViewport = styled(ToastPrimitive.Viewport, {
   right: 0,
   display: 'flex',
   flexDirection: 'column',
-  padding: VIEWPORT_PADDING,
+  p: VIEWPORT_PADDING,
   gap: 10,
   width: 390,
   maxWidth: '100vw',
-  margin: 0,
+  m: 0,
   listStyle: 'none',
   zIndex: 2147483647,
   outline: 'none'
@@ -39,7 +39,7 @@ const StyledToast = styled(ToastPrimitive.Root, {
   color: '$gray900',
   borderRadius: 6,
   boxShadow: 'hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px',
-  padding: 15,
+  p: 15,
   display: 'grid',
   gridTemplateAreas: '"title action" "description action"',
   gridTemplateColumns: 'auto max-content',
@@ -84,7 +84,7 @@ const StyledToast = styled(ToastPrimitive.Root, {
 
 const StyledTitle = styled(ToastPrimitive.Title, {
   gridArea: 'title',
-  marginBottom: 5,
+  mb: 5,
   fontWeight: 500,
   color: '$gray900',
   fontSize: 15
@@ -92,7 +92,7 @@ const StyledTitle = styled(ToastPrimitive.Title, {
 
 const StyledDescription = styled(ToastPrimitive.Description, {
   gridArea: 'description',
-  margin: 0,
+  m: 0,
   color: '$gray900',
   fontSize: 13,
   lineHeight: 1.3

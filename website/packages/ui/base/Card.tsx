@@ -5,7 +5,7 @@ import { Text } from './Text';
 export const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  padding: '$6',
+  p: '$6',
   background: '$gray100',
   borderRadius: '12px',
   boxShadow: '6px 20px 24px rgba(0, 0, 0, 0.25)',
@@ -17,7 +17,7 @@ export const Header = styled('div', {
   width: '100%',
   justifyContent: 'space-between',
   alignItems: 'center',
-  marginBottom: '$2'
+  mb: '$2'
 });
 
 export const Title = styled(Text, {
@@ -49,7 +49,7 @@ export const Footer = styled('div', {
   alignItems: 'center',
   width: '100%',
   borderTop: '1px solid #eee',
-  paddingTop: '$3'
+  pt: '$3'
 });
 
 export const FooterActions = styled('div', {

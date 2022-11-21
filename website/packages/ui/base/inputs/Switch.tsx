@@ -29,7 +29,7 @@ const SwitchThumb = styled(RadixSwitch.Thumb, {
 
 const Label = styled(Text, {
   fontSize: '$xs',
-  marginRight: '$2'
+  mr: '$2'
 });
 
 type Props = {

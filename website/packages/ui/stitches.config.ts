@@ -1,3 +1,4 @@
+import type * as Stitches from '@stitches/react';
 import { createStitches, CSS as StitchesCSS } from '@stitches/react';
 
 export const { styled, theme, keyframes } = createStitches({
@@ -82,6 +83,25 @@ export const { styled, theme, keyframes } = createStitches({
     shadows: {},
     zIndices: {},
     transitions: {}
+  },
+  utils: {
+    p: (value: Stitches.PropertyValue<'padding'>) => ({ padding: value }),
+    pt: (value: Stitches.PropertyValue<'padding'>) => ({ paddingTop: value }),
+    pr: (value: Stitches.PropertyValue<'padding'>) => ({ paddingRight: value }),
+    pb: (value: Stitches.PropertyValue<'padding'>) => ({ paddingBottom: value }),
+    pl: (value: Stitches.PropertyValue<'padding'>) => ({ paddingLeft: value }),
+    py: (value: Stitches.PropertyValue<'padding'>) => ({ paddingTop: value, paddingBottom: value }),
+    px: (value: Stitches.PropertyValue<'padding'>) => ({ paddingLeft: value, paddingRight: value }),
+
+    m: (value: Stitches.PropertyValue<'margin'>) => ({ margin: value }),
+    mt: (value: Stitches.PropertyValue<'margin'>) => ({ marginTop: value }),
+    mr: (value: Stitches.PropertyValue<'margin'>) => ({ marginRight: value }),
+    mb: (value: Stitches.PropertyValue<'margin'>) => ({ marginBottom: value }),
+    ml: (value: Stitches.PropertyValue<'margin'>) => ({ marginLeft: value }),
+    my: (value: Stitches.PropertyValue<'margin'>) => ({ marginTop: value, marginBottom: value }),
+    mx: (value: Stitches.PropertyValue<'margin'>) => ({ marginLeft: value, marginRight: value }),
+
+    sq: (value: Stitches.PropertyValue<'width'>) => ({ width: value, height: value })
   }
 });
 
