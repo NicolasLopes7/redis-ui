@@ -52,9 +52,9 @@ export const SetupConnectionForm = ({ register, control, formState: { errors } }
           <ToggleArea id={name} onChange={onChange} checked={value} title="Save Connection?">
             <TextInput
               LeftIcon={<LetterCaseCapitalizeIcon />}
-              {...register('metadata.connectionName')}
+              {...register('metadata.name')}
               placeholder="Connection Name"
-              error={errors.metadata?.connectionName?.message}
+              error={errors.metadata?.name?.message}
             />
           </ToggleArea>
         )}

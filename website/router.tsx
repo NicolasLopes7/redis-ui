@@ -11,9 +11,6 @@ export function Router() {
     <BrowserRouter>
       <Routes>
         <Route index element={<InitialPage />} />
-        <Route path="/:connectionURL" element={<ConnectionLayout />}>
-          <Route index element={KeysPage} />
-        </Route>
       </Routes>
     </BrowserRouter>
   );
