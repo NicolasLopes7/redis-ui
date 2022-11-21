@@ -14,7 +14,7 @@ type Props = {
 export function ConnectionItem({ isSelected, connection, onSelect, onRemove }: Props) {
   return (
     <Container as="button" tabIndex={0} isSelected={isSelected} onClick={onSelect}>
-      <CloseAction onClick={onRemove} />
+      <CloseAction tabIndex={0} onClick={onRemove} />
       <ContentContainer>
         <Text
           css={{

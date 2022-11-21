@@ -6,9 +6,10 @@ export const BaseInput = styled('input', {
   border: 'none',
   borderRadius: '6px',
   background: '$gray200',
-  color: '$gray900',
+  color: '$gray800',
+
   '&::placeholder': {
-    color: '$text200',
+    color: '$gray700',
     fontSize: '$sm'
   }
 });

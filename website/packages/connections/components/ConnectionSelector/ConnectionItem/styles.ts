@@ -5,7 +5,7 @@ export const CloseAction = styled(Cross1Icon, {
   position: 'absolute',
   top: '$2',
   right: '$2',
-  color: '$text200',
+  color: '$gray800',
 
   opacity: 0,
   transition: 'opacity 300ms ease-in-out',
@@ -14,6 +14,11 @@ export const CloseAction = styled(Cross1Icon, {
   '&:hover': {
     color: '$gray900'
   },
+
+  '&:focus': {
+    opacity: 1
+  },
+
   zIndex: 5
 });
 
@@ -48,7 +53,7 @@ export const Container = styled('div', {
     backgroundColor: '$gray300'
   },
 
-  '&:hover': {
+  '&:hover, &:focus': {
     [`& ${CloseAction}`]: {
       opacity: 1
     }
