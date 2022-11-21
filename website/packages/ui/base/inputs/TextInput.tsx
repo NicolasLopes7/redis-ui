@@ -33,7 +33,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
         {error && (
           <Text
             css={{
-              color: 'red',
+              color: '$red500',
               fontSize: '$xs',
               fontWeight: 'bold',
               ml: '2px'
