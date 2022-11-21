@@ -1,4 +1,4 @@
-import { styled } from '../../../../stitches.config';
+import { styled } from '../../stitches.config';
 
 export const BaseInput = styled('input', {
   fontSize: '$md',

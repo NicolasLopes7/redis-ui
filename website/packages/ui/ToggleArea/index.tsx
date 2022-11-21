@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { styled } from '../../../stitches.config';
+import { styled } from '../stitches.config';
 import { Switch, Text } from '../base';
 
 const Container = styled('div', {

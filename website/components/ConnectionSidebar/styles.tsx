@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { styled } from '../../stitches.config';
+import { styled } from '@redis-ui/ui/stitches.config';
 
 export const SidebarGroup = styled('div', {
   display: 'flex',
