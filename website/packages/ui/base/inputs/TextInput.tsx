@@ -1,5 +1,5 @@
 import React, { forwardRef, ReactNode } from 'react';
-import { CSS } from '../../../../stitches.config';
+import { CSS } from '../../stitches.config';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Text } from '../Text';

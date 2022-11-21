@@ -1,5 +1,5 @@
 import { Cross1Icon } from '@radix-ui/react-icons';
-import { styled } from '../../../../../stitches.config';
+import { styled } from '@redis-ui/ui/stitches.config';
 
 export const CloseAction = styled(Cross1Icon, {
   position: 'absolute',
