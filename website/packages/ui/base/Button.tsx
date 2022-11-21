@@ -10,15 +10,15 @@ export const Button = styled('button', {
 
   transition: 'background-color 100ms ease-in-out',
 
-  color: '$white',
-  backgroundColor: '$black100',
+  color: '$gray900',
+  backgroundColor: '$gray200',
 
   '&:hover': {
-    backgroundColor: '$black200'
+    backgroundColor: '$gray300'
   },
 
   '&:active': {
-    backgroundColor: '$black300'
+    backgroundColor: '$gray400'
   },
 
   borderRadius: '6px',

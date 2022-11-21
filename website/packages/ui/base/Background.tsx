@@ -2,8 +2,8 @@ import { styled } from '../stitches.config';
 
 export const Background = styled('div', {
   display: 'flex',
-  background: '$bg',
-  color: '$white',
+  background: '$gray50',
+  color: '$gray900',
   width: '100%',
   minHeight: '100vh'
 });

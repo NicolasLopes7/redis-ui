@@ -11,7 +11,7 @@ const Container = styled('div', {
   width: '100%',
   borderRadius: '6px',
 
-  background: '$black50'
+  background: '$gray50'
 });
 
 const Header = styled('div', {

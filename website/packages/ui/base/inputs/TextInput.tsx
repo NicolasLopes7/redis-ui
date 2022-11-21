@@ -20,7 +20,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
           align="center"
           css={{
             position: 'relative',
-            backgroundColor: '$black100',
+            backgroundColor: '$gray200',
             borderRadius: '6px',
             paddingLeft: '20px',
             width: '100%'
