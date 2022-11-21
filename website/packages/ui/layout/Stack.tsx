@@ -76,5 +76,13 @@ export const Stack = styled('div', {
         gap: '$8'
       }
     }
+  },
+  defaultVariants: {
+    direction: 'column',
+    align: 'start',
+    justify: 'start',
+    spacing: 'xs',
+    width: 'auto',
+    wrap: false
   }
 });

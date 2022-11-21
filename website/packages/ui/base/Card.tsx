@@ -5,7 +5,12 @@ import { Text } from './Text';
 export const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  alignItems: 'center',
+  gap: '$3',
   p: '$6',
+  width: '100%',
+  maxWidth: '$15',
+
   background: '$gray100',
   borderRadius: '12px',
   boxShadow: '6px 20px 24px rgba(0, 0, 0, 0.25)',
