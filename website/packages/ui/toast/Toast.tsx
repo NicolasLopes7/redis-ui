@@ -67,16 +67,16 @@ const StyledToast = styled(ToastPrimitive.Root, {
   variants: {
     type: {
       success: {
-        borderLeft: '2px solid green'
+        borderLeft: '2px solid $colors$green500'
       },
       error: {
-        borderLeft: '2px solid red'
+        borderLeft: '2px solid $colors$red500'
       },
       info: {
-        borderLeft: '2px solid blue'
+        borderLeft: '2px solid $colors$blue500'
       },
       warning: {
-        borderLeft: '2px solid yellow'
+        borderLeft: '2px solid $colors$yellow500'
       }
     }
   }
@@ -103,7 +103,7 @@ const StyledAction = styled(ToastPrimitive.Action, {
 });
 
 export const StyledClose = styled(ToastPrimitive.Close, {
-  color: 'red',
+  color: '$colors$red500',
   cursor: 'pointer'
 });
 
