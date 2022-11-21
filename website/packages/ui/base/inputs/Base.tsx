@@ -5,8 +5,8 @@ export const BaseInput = styled('input', {
   padding: '12px 20px',
   border: 'none',
   borderRadius: '6px',
-  background: '$black100',
-  color: '$white',
+  background: '$gray200',
+  color: '$gray900',
   '&::placeholder': {
     color: '$text200',
     fontSize: '$sm'

@@ -19,13 +19,13 @@ export function ConnectionItem({ isSelected, connection, onSelect, onRemove }: P
         <Text
           css={{
             fontWeight: 'bold',
-            color: '$white'
+            color: '$gray900'
           }}
         >
           {connection.metadata.name}
         </Text>
 
-        <Text css={{ color: '$text200' }}>
+        <Text css={{ color: '$gray800' }}>
           {connection.data.host}:{connection.data.port}
         </Text>
       </ContentContainer>

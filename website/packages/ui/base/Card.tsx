@@ -5,11 +5,11 @@ import { Text } from './Text';
 export const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  padding: '$4',
-  background: '$bg50',
+  padding: '$6',
+  background: '$gray100',
   borderRadius: '12px',
   boxShadow: '6px 20px 24px rgba(0, 0, 0, 0.25)',
-  color: '$text'
+  color: '$gray900'
 });
 
 export const Header = styled('div', {

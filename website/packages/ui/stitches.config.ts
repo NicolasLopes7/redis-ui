@@ -3,22 +3,16 @@ import { createStitches, CSS as StitchesCSS } from '@stitches/react';
 export const { styled, theme, keyframes } = createStitches({
   theme: {
     colors: {
-      bg: '#101010',
-      bg50: '#202020',
-      bg100: '#333333',
-      bg200: '#3F3F3F',
-
-      white: '#FFFFFF',
-
-      black: '#000000',
-      black50: '#111',
-      black100: '#191919',
-      black200: '#1C1C1C',
-      black300: '#252525',
-
-      text: '#fff',
-      text100: '#eee',
-      text200: '#ddd'
+      gray50: 'hsl(230, 5%, 5%)',
+      gray100: 'hsl(230, 5%, 10%)',
+      gray200: 'hsl(230, 5%, 15%)',
+      gray300: 'hsl(230, 5%, 20%)',
+      gray400: 'hsl(230, 5%, 25%)',
+      gray500: 'hsl(230, 5%, 30%)',
+      gray600: 'hsl(230, 5%, 50%)',
+      gray700: 'hsl(230, 5%, 70%)',
+      gray800: 'hsl(230, 5%, 90%)',
+      gray900: 'hsl(230, 5%, 100%)'
     },
     fonts: {
       sans: 'Roboto, sans-serif'

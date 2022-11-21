@@ -12,7 +12,7 @@ export const CloseAction = styled(Cross1Icon, {
   fontSize: '$sm',
 
   '&:hover': {
-    color: '$white'
+    color: '$gray900'
   },
   zIndex: 5
 });
@@ -36,16 +36,16 @@ export const Container = styled('div', {
 
   cursor: 'pointer',
 
-  backgroundColor: '$black100',
+  backgroundColor: '$gray200',
   transition: 'background-color 200ms ease-in-out',
   width: '100%',
 
   '&:focus': {
-    outline: '1px solid $colors$white'
+    outline: '1px solid $colors$gray900'
   },
 
   '&:hover, &:active': {
-    backgroundColor: '$black200'
+    backgroundColor: '$gray300'
   },
 
   '&:hover': {
@@ -57,10 +57,10 @@ export const Container = styled('div', {
   variants: {
     isSelected: {
       true: {
-        borderColor: '$white'
+        borderColor: '$gray900'
       },
       false: {
-        borderColor: '$black300'
+        borderColor: '$gray400'
       }
     }
   }

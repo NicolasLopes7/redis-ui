@@ -20,7 +20,7 @@ export function ConnectionSelector({ connections, selectedConnection, onSelect, 
       direction="column"
       gap="lg"
       css={{
-        background: '$bg50',
+        background: '$gray100',
         minWidth: '360px',
         minHeight: '100vh',
         padding: '32px 20px'

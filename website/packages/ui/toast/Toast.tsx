@@ -36,7 +36,7 @@ const StyledViewport = styled(ToastPrimitive.Viewport, {
 
 const StyledToast = styled(ToastPrimitive.Root, {
   backgroundColor: '$bg100',
-  color: '$white',
+  color: '$gray900',
   borderRadius: 6,
   boxShadow: 'hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px',
   padding: 15,
@@ -86,14 +86,14 @@ const StyledTitle = styled(ToastPrimitive.Title, {
   gridArea: 'title',
   marginBottom: 5,
   fontWeight: 500,
-  color: '$white',
+  color: '$gray900',
   fontSize: 15
 });
 
 const StyledDescription = styled(ToastPrimitive.Description, {
   gridArea: 'description',
   margin: 0,
-  color: '$white',
+  color: '$gray900',
   fontSize: 13,
   lineHeight: 1.3
 });
