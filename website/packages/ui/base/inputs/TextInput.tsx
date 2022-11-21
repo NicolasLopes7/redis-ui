@@ -22,7 +22,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
             position: 'relative',
             backgroundColor: '$gray200',
             borderRadius: '6px',
-            paddingLeft: '20px',
+            pl: '20px',
             width: '100%'
           }}
         >
@@ -36,7 +36,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
               color: 'red',
               fontSize: '$xs',
               fontWeight: 'bold',
-              marginLeft: '2px'
+              ml: '2px'
             }}
           >
             {error}

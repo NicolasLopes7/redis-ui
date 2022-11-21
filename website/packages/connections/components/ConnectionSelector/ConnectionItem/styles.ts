@@ -36,8 +36,8 @@ export const Container = styled('div', {
   borderLeftStyle: 'solid',
   borderRadius: '6px',
 
-  padding: '$3',
-  paddingLeft: '$4',
+  p: '$3',
+  pl: '$4',
 
   cursor: 'pointer',
 

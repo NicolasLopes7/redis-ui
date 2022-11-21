@@ -5,7 +5,7 @@ import { styled } from '@redis-ui/ui/stitches.config';
 
 export const NewConnectionIcon = styled(PlusIcon, {
   fontSize: '$md',
-  marginRight: '4px'
+  mr: '4px'
 });
 
 type Props = {

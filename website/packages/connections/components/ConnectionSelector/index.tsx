@@ -23,7 +23,7 @@ export function ConnectionSelector({ connections, selectedConnection, onSelect, 
         background: '$gray100',
         minWidth: '360px',
         minHeight: '100vh',
-        padding: '32px 20px'
+        p: '32px 20px'
       }}
     >
       <Flex

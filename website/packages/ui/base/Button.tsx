@@ -26,11 +26,11 @@ export const Button = styled('button', {
   variants: {
     size: {
       sm: {
-        padding: '8px 20px',
+        p: '8px 20px',
         fontSize: '$sm'
       },
       md: {
-        padding: '12px 20px',
+        p: '12px 20px',
         borderRadius: '6px',
         fontSize: '$md'
       }

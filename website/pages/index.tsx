@@ -36,7 +36,7 @@ export function InitialPage() {
         direction={'column'}
         css={{
           width: '100%',
-          padding: '$4',
+          p: '$4',
           flexGrow: 0,
           minHeight: '100vh',
           alignItems: 'center',
