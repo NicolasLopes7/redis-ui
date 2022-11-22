@@ -13,6 +13,7 @@ type InspectedConnectionData = {
   connectionURL?: string;
 
   inspectConnection: (connection: Connection) => void;
+  disconnect: () => void;
 };
 
 const InspectedConnectionContext = createContext<InspectedConnectionData | null>(null);
@@ -25,11 +26,16 @@ export function InspectedConnectionProvider({ children }: PropsWithChildren) {
     return buildConnectionURL(connection);
   }, [connection]);
 
+  const disconnect = useCallback(() => {
+    setConnection(undefined);
+  }, []);
+
   return (
     <InspectedConnectionContext.Provider
       value={{
         connection,
         connectionURL,
+        disconnect,
         inspectConnection: setConnection
       }}
     >

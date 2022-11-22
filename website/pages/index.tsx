@@ -46,7 +46,7 @@ export function InitialPage() {
         addToast({ title: 'Connected!', message: 'We connected into your Redis instance', type: 'success' });
 
         inspectConnection(connection);
-        navigate('/keys');
+        navigate('/connection/keys');
       } catch (error) {
         removeLoadingToast();
 

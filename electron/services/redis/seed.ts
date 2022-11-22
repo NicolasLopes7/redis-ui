@@ -23,11 +23,6 @@ const seed = async () => {
   }));
   await client.set('products', 'aaa');
 
-  console.log(
-    'going to set: ',
-    Object.entries(productsGroupedById).map(([key, value]) => ['set', key, JSON.stringify(value)])
-  );
-
   return await client
     .pipeline(Object.entries(productsGroupedById).map(([key, value]) => ['set', key, JSON.stringify(value)]))
     .exec((err, result) => {
