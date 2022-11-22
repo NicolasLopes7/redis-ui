@@ -4,6 +4,7 @@ import { useInspectedConnection } from '../contexts';
 import { Connection } from '@redis-ui/connections';
 import { styled } from '@redis-ui/ui/stitches.config';
 import { useNavigate } from 'react-router-dom';
+import { buildConnectionURL } from '../../../lib/connection-url';
 
 type ConnectionTextProps = {
   connection?: Connection;
@@ -53,7 +54,7 @@ function ConnectionText({ connection }: ConnectionTextProps) {
 }
 
 export function Header() {
-  const { connection, connectionURL, disconnect } = useInspectedConnection();
+  const { connection, disconnect } = useInspectedConnection();
   const navigate = useNavigate();
 
   const handleDisconnect = useCallback(() => {
@@ -64,7 +65,6 @@ export function Header() {
   return (
     <Flex justify={'between'} align="center" css={{ width: '100%', px: '$5', py: '$4', backgroundColor: '$gray100' }}>
       <ConnectionText connection={connection} />
-
       <Button onClick={handleDisconnect}>Back to Selection</Button>
     </Flex>
   );

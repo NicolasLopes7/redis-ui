@@ -31,7 +31,7 @@ export function SavedConnectionsProvider({ children }: PropsWithChildren) {
 
   const removeConnection = useCallback((connectionToRemove: Connection) => {
     setConnections((connections) =>
-      connections.filter((connection) => connection.metadata.name === connectionToRemove.metadata.name)
+      connections.filter((connection) => connection.metadata.name !== connectionToRemove.metadata.name)
     );
   }, []);
 
