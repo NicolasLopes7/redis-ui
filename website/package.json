@@ -4,7 +4,7 @@
   "main": "main.txt",
   "dependencies": {
     "@redis-ui/connections": "workspace:*",
-    "@redis-ui/ui": "workspace:*",
-    "@redis-ui/inspector": "workspace:*"
+    "@redis-ui/inspector": "workspace:*",
+    "@redis-ui/ui": "workspace:*"
   }
 }
