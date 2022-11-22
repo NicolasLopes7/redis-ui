@@ -4,3 +4,4 @@ export * from './contexts';
 export * from './layout';
 
 export * from './ToggleArea';
+export * from './loading';

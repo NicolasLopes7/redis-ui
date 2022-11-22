@@ -32,7 +32,7 @@ importers:
       eslint-plugin-jsx-a11y: ^6.5.1
       eslint-plugin-prettier: 4.0.0
       eslint-plugin-react: ^7.29.4
-      eslint-plugin-react-hooks: ^4.3.0
+      eslint-plugin-react-hooks: ^4.6.0
       ioredis: ^5.2.2
       prettier: 2.6.0
       react: ^18.2.0
@@ -91,12 +91,20 @@ importers:
   website:
     specifiers:
       '@redis-ui/connections': workspace:*
+      '@redis-ui/inspector': workspace:*
       '@redis-ui/ui': workspace:*
     dependencies:
       '@redis-ui/connections': link:packages/connections
+      '@redis-ui/inspector': link:packages/inspector
       '@redis-ui/ui': link:packages/ui
 
   website/packages/connections:
+    specifiers:
+      '@redis-ui/ui': workspace:*
+    dependencies:
+      '@redis-ui/ui': link:../ui
+
+  website/packages/inspector:
     specifiers:
       '@redis-ui/ui': workspace:*
     dependencies:

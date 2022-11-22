@@ -22,16 +22,27 @@ const seed = async () => {
     [curr.id]: curr
   }));
   await client.set('products', 'aaa');
-  return client
-    .pipeline(
-      Object.entries(productsGroupedById).map(([key, value]) => ['set', 'products', key, JSON.stringify(value)])
-    )
-    .exec();
+
+  console.log(
+    'going to set: ',
+    Object.entries(productsGroupedById).map(([key, value]) => ['set', key, JSON.stringify(value)])
+  );
+
+  return await client
+    .pipeline(Object.entries(productsGroupedById).map(([key, value]) => ['set', key, JSON.stringify(value)]))
+    .exec((err, result) => {
+      if (err) {
+        console.log('Error: ', err);
+        return err;
+      }
+
+      console.log('Result: ', result);
+    });
 };
 (async () => {
   console.log('🚀 Starting seeding Redis');
   try {
-    seed();
+    await seed();
     console.log('✅ Finished seeding Redis');
     process.exit(0);
     return;
