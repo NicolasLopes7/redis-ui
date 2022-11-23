@@ -40,15 +40,15 @@ export function KeysPage() {
   if (isError) return <ErrorScreen />;
 
   return (
-    <Background css={{ flexDirection: 'column', alignItems: 'center', p: '$6' }}>
+    <Background css={{ flexDirection: 'column', alignItems: 'center', p: '$5' }}>
       <Table>
         <TableHead>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <td key={header.id}>
+                <TableCell as="th" key={header.id}>
                   {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                </td>
+                </TableCell>
               ))}
             </tr>
           ))}

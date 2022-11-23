@@ -6,24 +6,34 @@ import ReactJson from 'react-json-view';
 import { Text } from '../base';
 
 export const Table = styled('table', {
+  display: 'block',
   background: '$gray100',
   borderCollapse: 'collapse',
   borderRadius: '10px',
-  overflow: 'hidden',
-  p: '$4'
+  overflow: 'auto',
+  width: '100%',
+  maxHeight: '80vh',
+  whiteSpace: 'nowrap',
+
+  '& tr': {
+    width: '100%'
+  }
 });
 
 export const TableHead = styled('thead', {
   backgroundColor: '$gray200',
 
-  '& > tr': {
-    padding: '$2'
+  '& > tr > th': {
+    borderBottom: '1px solid $colors$gray600',
+    backgroundColor: '$gray200',
+    fontWeight: 'bold',
+    position: 'sticky',
+    top: 0,
+    zIndex: 1
   },
 
-  '& > tr > td': {
-    padding: '$4',
-    borderBottom: '1px solid $colors$gray600',
-    fontWeight: 'bold'
+  '& > tr > th:last-child': {
+    width: '100%'
   }
 });
 
@@ -31,8 +41,9 @@ export const TableBody = styled('tbody', {
   background: '$gray100',
 
   '& > tr > td': {
-    padding: '$4',
-    borderBottom: '1px solid $colors$gray400'
+    borderBottom: '1px solid $colors$gray400',
+    borderLeft: '1px solid $colors$gray400',
+    borderRight: '1px solid $colors$gray400'
   }
 });
 
@@ -74,7 +85,7 @@ export function SmartCell({ value }: SmartCellProps) {
   }
 
   return (
-    <Flex>
+    <Flex css={{ whiteSpace: 'normal' }}>
       <ReactJson
         name={null}
         src={schema.value}
