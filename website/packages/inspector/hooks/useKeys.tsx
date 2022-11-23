@@ -14,8 +14,13 @@ export const useKeys = () => {
   const getKeys = useCallback(async () => {
     if (!connectionURL) throw new Error('Tried to query keys without connection url');
 
-    const keys = await window.Main.getKeys(connectionURL);
-    return keys as RedisKey[];
+    const keys = (await window.Main.getKeys(connectionURL)) as RedisKey[];
+    const parsedKeys = keys.map((key) => ({
+      ...key,
+      value: eval(key.value)
+    }));
+
+    return parsedKeys;
   }, [connectionURL]);
 
   const query = useQuery(getKeys, { enabled: !!connectionURL });

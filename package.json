@@ -44,6 +44,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.39.3",
+    "react-json-view": "^1.21.3",
     "react-router-dom": "^6.3.0",
     "vite": "^2.8.6",
     "zod": "^3.19.1"

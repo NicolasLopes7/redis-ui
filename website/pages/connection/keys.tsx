@@ -1,7 +1,7 @@
 import { RedisKey, useKeys } from '@redis-ui/inspector/hooks/useKeys';
 import { Background, LoadingScreen, Text } from '@redis-ui/ui';
 import { ErrorScreen } from '@redis-ui/ui/error/ErrorScreen';
-import { Table, TableBody, TableHead } from '@redis-ui/ui/table';
+import { SmartCell, Table, TableBody, TableCell, TableHead } from '@redis-ui/ui/table';
 import { createColumnHelper, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table';
 import React from 'react';
 
@@ -15,7 +15,14 @@ const columns = [
   columnHelper.accessor('value', {
     header: 'Value',
     cell: (info) => {
-      return <Text>{info.getValue()}</Text>;
+      let parsedValue: unknown;
+      try {
+        parsedValue = JSON.parse(info.getValue());
+      } catch (err) {
+        parsedValue = info.getValue();
+      }
+
+      return <SmartCell value={parsedValue} />;
     }
   })
 ];
@@ -50,7 +57,7 @@ export function KeysPage() {
           {table.getRowModel().rows.map((row) => (
             <tr key={row.id}>
               {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
+                <TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
               ))}
             </tr>
           ))}
