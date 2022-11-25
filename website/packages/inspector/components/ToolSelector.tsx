@@ -1,23 +1,22 @@
 import React from 'react';
 import { Stack } from '@redis-ui/ui';
 import { styled } from '@redis-ui/ui/stitches.config';
-import { KeyboardIcon } from '@radix-ui/react-icons';
+import { BellIcon, ColumnsIcon, KeyboardIcon, RowsIcon, TableIcon } from '@radix-ui/react-icons';
 
 export const Icon = styled('div', {
-  sq: '$7'
+  sq: '$5'
 });
 
 export const ToolItem = styled('button', {
   display: 'flex',
   flexDirection: 'column',
-  gap: '$sm',
+  gap: '$1',
   alignItems: 'center',
   justifyContent: 'center',
   border: 'none',
-  color: '$gray900',
+  color: '$gray800',
   backgroundColor: '$gray100',
-  p: '$2',
-  px: '16px',
+  sq: '$8',
   cursor: 'pointer',
   borderRadius: '$sm',
   transition: 'background-color 200ms ease-in-out',
@@ -30,10 +29,32 @@ export const ToolItem = styled('button', {
 
   '&:active': {
     backgroundColor: '$gray400'
+  },
+
+  variants: {
+    isSelected: {
+      true: {
+        backgroundColor: '$gray400',
+        color: '$gray900',
+
+        '&:hover, &:focus, &:active': {
+          backgroundColor: '$gray400'
+        }
+      }
+    }
   }
 });
 
-export function ToolSelector() {
+export type Tool = 'keys' | 'pubsub' | 'lists' | 'sets';
+
+type Props = {
+  onToolSelect: (tool: Tool) => void;
+  selectedTool: Tool;
+};
+
+export function ToolSelector({ onToolSelect, selectedTool }: Props) {
+  const handleToolSelect = (tool: Tool) => () => onToolSelect(tool);
+
   return (
     <Stack
       direction={'column'}
@@ -46,23 +67,23 @@ export function ToolSelector() {
         pt: '76px'
       }}
     >
-      <ToolItem>
-        <Icon as={KeyboardIcon} />
+      <ToolItem isSelected={selectedTool === 'keys'} onClick={handleToolSelect('keys')}>
+        <Icon as={TableIcon} />
         Keys
       </ToolItem>
 
-      <ToolItem>
-        <Icon as={KeyboardIcon} />
+      <ToolItem isSelected={selectedTool === 'pubsub'} onClick={handleToolSelect('pubsub')}>
+        <Icon as={BellIcon} />
         Pub/Sub
       </ToolItem>
 
-      <ToolItem>
-        <Icon as={KeyboardIcon} />
+      <ToolItem isSelected={selectedTool === 'lists'} onClick={handleToolSelect('lists')}>
+        <Icon as={ColumnsIcon} />
         Lists
       </ToolItem>
 
-      <ToolItem>
-        <Icon as={KeyboardIcon} />
+      <ToolItem isSelected={selectedTool === 'sets'} onClick={handleToolSelect('sets')}>
+        <Icon as={RowsIcon} />
         Sets
       </ToolItem>
     </Stack>
