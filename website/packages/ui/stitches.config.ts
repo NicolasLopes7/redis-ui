@@ -15,6 +15,17 @@ export const { styled, theme, keyframes } = createStitches({
       gray800: 'hsl(230, 5%, 90%)',
       gray900: 'hsl(230, 5%, 100%)',
 
+      aGray50: 'hsl(230, 5%, 50%, 0)',
+      aGray100: 'hsl(230, 5%, 50%, 0.1)',
+      aGray200: 'hsl(230, 5%, 50%, 0.2)',
+      aGray300: 'hsl(230, 5%, 50%, 0.3)',
+      aGray400: 'hsl(230, 5%, 50%, 0.4)',
+      aGray500: 'hsl(230, 5%, 50%, 0.5)',
+      aGray600: 'hsl(230, 5%, 50%, 0.6)',
+      aGray700: 'hsl(230, 5%, 50%, 0.7)',
+      aGray800: 'hsl(230, 5%, 50%, 0.8)',
+      aGray900: 'hsl(230, 5%, 50%, 0.9)',
+
       red100: 'hsl(0, 100%, 10%)',
       red200: 'hsl(0, 100%, 20%)',
       red300: 'hsl(0, 100%, 30%)',
@@ -24,6 +35,17 @@ export const { styled, theme, keyframes } = createStitches({
       red700: 'hsl(0, 100%, 70%)',
       red800: 'hsl(0, 100%, 80%)',
       red900: 'hsl(0, 100%, 90%)',
+
+      aRed50: 'hsl(0, 100%, 50%, 0)',
+      aRed100: 'hsl(0, 100%, 50%, 0.1)',
+      aRed200: 'hsl(0, 100%, 50%, 0.2)',
+      aRed300: 'hsl(0, 100%, 50%, 0.3)',
+      aRed400: 'hsl(0, 100%, 50%, 0.4)',
+      aRed500: 'hsl(0, 100%, 50%, 0.5)',
+      aRed600: 'hsl(0, 100%, 50%, 0.6)',
+      aRed700: 'hsl(0, 100%, 50%, 0.7)',
+      aRed800: 'hsl(0, 100%, 50%, 0.8)',
+      aRed900: 'hsl(0, 100%, 50%, 0.9)',
 
       yellow100: 'hsl(60, 100%, 10%)',
       yellow200: 'hsl(60, 100%, 20%)',
@@ -35,6 +57,17 @@ export const { styled, theme, keyframes } = createStitches({
       yellow800: 'hsl(60, 100%, 80%)',
       yellow900: 'hsl(60, 100%, 90%)',
 
+      aYellow50: 'hsl(60, 100%, 50%, 0)',
+      aYellow100: 'hsl(60, 100%, 50%, 0.1)',
+      aYellow200: 'hsl(60, 100%, 50%, 0.2)',
+      aYellow300: 'hsl(60, 100%, 50%, 0.3)',
+      aYellow400: 'hsl(60, 100%, 50%, 0.4)',
+      aYellow500: 'hsl(60, 100%, 50%, 0.5)',
+      aYellow600: 'hsl(60, 100%, 50%, 0.6)',
+      aYellow700: 'hsl(60, 100%, 50%, 0.7)',
+      aYellow800: 'hsl(60, 100%, 50%, 0.8)',
+      aYellow900: 'hsl(60, 100%, 50%, 0.9)',
+
       green100: 'hsl(120, 100%, 10%)',
       green200: 'hsl(120, 100%, 20%)',
       green300: 'hsl(120, 100%, 30%)',
@@ -45,6 +78,17 @@ export const { styled, theme, keyframes } = createStitches({
       green800: 'hsl(120, 100%, 80%)',
       green900: 'hsl(120, 100%, 90%)',
 
+      aGreen50: 'hsl(120, 100%, 50%, 0)',
+      aGreen100: 'hsl(120, 100%, 50%, 0.1)',
+      aGreen200: 'hsl(120, 100%, 50%, 0.2)',
+      aGreen300: 'hsl(120, 100%, 50%, 0.3)',
+      aGreen400: 'hsl(120, 100%, 50%, 0.4)',
+      aGreen500: 'hsl(120, 100%, 50%, 0.5)',
+      aGreen600: 'hsl(120, 100%, 50%, 0.6)',
+      aGreen700: 'hsl(120, 100%, 50%, 0.7)',
+      aGreen800: 'hsl(120, 100%, 50%, 0.8)',
+      aGreen900: 'hsl(120, 100%, 50%, 0.9)',
+
       blue100: 'hsl(210, 100%, 10%)',
       blue200: 'hsl(210, 100%, 20%)',
       blue300: 'hsl(210, 100%, 30%)',
@@ -53,7 +97,18 @@ export const { styled, theme, keyframes } = createStitches({
       blue600: 'hsl(210, 100%, 60%)',
       blue700: 'hsl(210, 100%, 70%)',
       blue800: 'hsl(210, 100%, 80%)',
-      blue900: 'hsl(210, 100%, 90%)'
+      blue900: 'hsl(210, 100%, 90%)',
+
+      aBlue50: 'hsl(210, 100%, 50%, 0)',
+      aBlue100: 'hsl(210, 100%, 50%, 0.1)',
+      aBlue200: 'hsl(210, 100%, 50%, 0.2)',
+      aBlue300: 'hsl(210, 100%, 50%, 0.3)',
+      aBlue400: 'hsl(210, 100%, 50%, 0.4)',
+      aBlue500: 'hsl(210, 100%, 50%, 0.5)',
+      aBlue600: 'hsl(210, 100%, 50%, 0.6)',
+      aBlue700: 'hsl(210, 100%, 50%, 0.7)',
+      aBlue800: 'hsl(210, 100%, 50%, 0.8)',
+      aBlue900: 'hsl(210, 100%, 50%, 0.9)'
     },
     fonts: {
       sans: 'Roboto, sans-serif'

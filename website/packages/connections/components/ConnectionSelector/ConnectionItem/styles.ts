@@ -1,19 +1,14 @@
-import { Cross1Icon } from '@radix-ui/react-icons';
+import { IconButton } from '@redis-ui/ui/base/IconButton';
 import { styled } from '@redis-ui/ui/stitches.config';
 
-export const CloseAction = styled(Cross1Icon, {
+export const CloseAction = styled(IconButton, {
   position: 'absolute',
   top: '$2',
   right: '$2',
-  color: '$gray800',
 
   opacity: 0,
   transition: 'opacity 300ms ease-in-out',
   fontSize: '$sm',
-
-  '&:hover': {
-    color: '$gray900'
-  },
 
   '&:focus': {
     opacity: 1
@@ -49,8 +44,12 @@ export const Container = styled('div', {
     outline: '1px solid $colors$gray900'
   },
 
-  '&:hover, &:active': {
+  '&:hover': {
     backgroundColor: '$gray300'
+  },
+
+  '&.active': {
+    backgroundColor: '$gray400'
   },
 
   '&:hover, &:focus': {
