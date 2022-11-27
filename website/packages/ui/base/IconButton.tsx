@@ -6,6 +6,9 @@ export const IconButton = styled('button', {
   color: '$gray900',
   transition: 'background-color 0.3s ease-in-out',
   cursor: 'pointer',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 
   variants: {
     size: {
