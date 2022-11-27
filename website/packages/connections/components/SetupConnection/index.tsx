@@ -36,7 +36,7 @@ export function SetupConnection({ selectedConnection, onSubmit }: Props) {
     }
 
     reset(selectedConnection);
-  }, [selectedConnection]);
+  }, [selectedConnection, reset]);
 
   return (
     <Card.Container as={'form'} onSubmit={handleSubmit(onSubmit)}>
