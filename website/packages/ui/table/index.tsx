@@ -1,5 +1,4 @@
 import React from 'react';
-import { getSchema } from '../../../lib/generateSchema';
 import { Flex } from '../layout';
 import { styled } from '../stitches.config';
 import ReactJson from 'react-json-view';
@@ -56,25 +55,19 @@ type SmartCellProps = {
 };
 
 export function SmartCell({ value }: SmartCellProps) {
-  const schema = getSchema(value);
-
-  if (schema.type === 'string') {
-    return <Text>{schema.value}</Text>;
+  if (typeof value === 'string') {
+    return <Text>{value}</Text>;
   }
 
-  if (schema.type === 'number') {
-    return <Text css={{ textAlign: 'right' }}>{schema.value}</Text>;
+  if (typeof value === 'number') {
+    return <Text css={{ textAlign: 'right' }}>{value}</Text>;
   }
 
-  if (schema.type === 'boolean') {
-    return <Text>{schema.value ? 'True' : 'False'}</Text>;
+  if (typeof value === 'boolean') {
+    return <Text>{value ? 'True' : 'False'}</Text>;
   }
 
-  if (schema.type === 'null') {
-    return <Text></Text>;
-  }
-
-  if (schema.type === 'array') {
+  if (Array.isArray(value)) {
     return (
       <Flex align="center" css={{ maxWidth: '200px', overflowX: 'auto' }}>
         {(value as Array<unknown>).map((entry, index) => (
@@ -84,11 +77,15 @@ export function SmartCell({ value }: SmartCellProps) {
     );
   }
 
+  if (!value) {
+    return <Text></Text>;
+  }
+
   return (
     <Flex css={{ whiteSpace: 'normal' }}>
       <ReactJson
         name={null}
-        src={schema.value}
+        src={value}
         displayDataTypes={false}
         displayObjectSize={false}
         enableClipboard={false}
