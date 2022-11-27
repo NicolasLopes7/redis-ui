@@ -24,6 +24,21 @@ export const Button = styled('button', {
   borderRadius: '6px',
 
   variants: {
+    kind: {
+      primary: {},
+      secondary: {
+        backgroundColor: 'transparent',
+        border: '1px solid $colors$gray900',
+
+        '&:hover': {
+          backgroundColor: '$aGray100'
+        },
+
+        '&:focus': {
+          backgroundColor: '$aGray200'
+        }
+      }
+    },
     size: {
       sm: {
         p: '8px 20px',
@@ -37,6 +52,7 @@ export const Button = styled('button', {
     }
   },
   defaultVariants: {
-    size: 'md'
+    kind: 'md',
+    type: 'primary'
   }
 });
