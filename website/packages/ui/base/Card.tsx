@@ -67,6 +67,6 @@ export const FooterActions = styled('div', {
 export const FooterAction = styled(Button, {
   defaultVariants: {
     size: 'sm',
-    type: 'primary'
+    kind: 'primary'
   }
 });

@@ -2,7 +2,9 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { Cross2Icon } from '@radix-ui/react-icons';
 import React from 'react';
 import { keyframes, styled } from '../stitches.config';
+import { Button } from './Button';
 import { IconButton } from './IconButton';
+import { Text } from './Text';
 
 const overlayShow = keyframes({
   '0%': { opacity: 0 },
@@ -21,7 +23,7 @@ export const Overlay = styled(Dialog.Overlay, {
   animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`
 });
 
-export const Content = styled(Dialog.Content, {
+export const Container = styled(Dialog.Content, {
   backgroundColor: '$gray100',
   color: '$gray800',
   borderRadius: '$sm',
@@ -33,16 +35,69 @@ export const Content = styled(Dialog.Content, {
   width: '90vw',
   maxWidth: '450px',
   maxHeight: '85vh',
-  padding: '$5',
   animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
   '&:focus': { outline: 'none' }
 });
 
-export const Title = styled(Dialog.Title, {
-  margin: 0,
+export const Content = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '$4',
+  padding: '$5'
+});
+
+export const Header = styled('div', {
+  display: 'flex',
+  width: '100%',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  mb: '$2'
+});
+
+export const Title = styled(Text, {
+  fontSize: '$lg',
+  fontWeight: 'bold'
+});
+
+export const HeaderActions = styled('div', {
+  display: 'flex',
+  gap: '$1'
+});
+
+export const HeaderAction = styled('button', {
   fontWeight: 'bold',
-  color: '$gray900',
-  fontSize: '$md'
+  fontSize: '$sm',
+  color: '$text',
+  cursor: 'pointer',
+  background: 'transparent',
+  border: 'none',
+
+  '&:hover': {
+    textDecoration: 'underline'
+  }
+});
+
+export const Footer = styled('div', {
+  display: 'flex',
+  justifyContent: 'flex-end',
+  alignItems: 'center',
+  width: '100%',
+  borderTop: '1px solid #eee',
+  pt: '$3'
+});
+
+export const FooterActions = styled('div', {
+  display: 'flex',
+  gap: '$4',
+
+  alignItems: 'center'
+});
+
+export const FooterAction = styled(Button, {
+  defaultVariants: {
+    size: 'sm',
+    kind: 'primary'
+  }
 });
 
 export const Description = styled(Dialog.Description, {
@@ -64,7 +119,7 @@ export function CloseIconButton() {
   return (
     <Close asChild>
       <IconButton
-        transparent={false}
+        transparent
         color="dark"
         css={{
           position: 'absolute',

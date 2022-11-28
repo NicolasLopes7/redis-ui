@@ -28,13 +28,12 @@ export const Button = styled('button', {
       primary: {},
       secondary: {
         backgroundColor: 'transparent',
-        border: '1px solid $colors$gray900',
 
         '&:hover': {
           backgroundColor: '$aGray100'
         },
 
-        '&:focus': {
+        '&:active': {
           backgroundColor: '$aGray200'
         }
       }
@@ -52,7 +51,7 @@ export const Button = styled('button', {
     }
   },
   defaultVariants: {
-    kind: 'md',
-    type: 'primary'
+    size: 'md',
+    kind: 'primary'
   }
 });

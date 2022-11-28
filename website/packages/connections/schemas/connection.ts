@@ -5,7 +5,7 @@ export const connectionSchema = z.object({
     host: z.string({ required_error: 'Host is required' }).min(1, 'Host is required'),
     port: z.string({ required_error: 'Port is required' }).min(1, 'Port is required'),
 
-    database: z.string(),
+    database: z.string().optional(),
     password: z.string().optional()
   }),
   metadata: z.object({

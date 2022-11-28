@@ -1,9 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { LetterCaseCapitalizeIcon, LetterCaseUppercaseIcon } from '@radix-ui/react-icons';
-import { Card, Dialog, TextInput } from '@redis-ui/ui';
-import React, { useEffect } from 'react';
+import { Card, Dialog, TextInput, useDisclosure } from '@redis-ui/ui';
+import React, { useCallback, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Connection, connectionSchema } from '../../schemas';
+import { ImportConnectionURL } from './ImportConnectionURL';
 import { SetupConnectionForm } from './SetupConnectionForm';
 
 type Props = {
@@ -30,6 +31,16 @@ export function SetupConnection({ selectedConnection, onSubmit }: Props) {
     defaultValues
   });
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const onConnectionImport = useCallback(
+    (connection: Connection) => {
+      reset(connection);
+      onClose();
+    },
+    [reset, onClose]
+  );
+
   useEffect(() => {
     if (!selectedConnection) {
       reset(defaultValues);
@@ -40,14 +51,14 @@ export function SetupConnection({ selectedConnection, onSubmit }: Props) {
   }, [selectedConnection, reset]);
 
   return (
-    <Dialog.Root>
+    <>
       <Card.Container as={'form'} onSubmit={handleSubmit(onSubmit)}>
         <Card.Header>
           <Card.Title>Setup Connection</Card.Title>
           <Card.HeaderActions>
-            <Dialog.Trigger asChild>
-              <Card.HeaderAction type="button">Import from URL</Card.HeaderAction>
-            </Dialog.Trigger>
+            <Card.HeaderAction type="button" onClick={onOpen}>
+              Import from URL
+            </Card.HeaderAction>
           </Card.HeaderActions>
         </Card.Header>
 
@@ -60,20 +71,7 @@ export function SetupConnection({ selectedConnection, onSubmit }: Props) {
         </Card.Footer>
       </Card.Container>
 
-      <Dialog.Portal>
-        <Dialog.Overlay />
-        <Dialog.Content>
-          <Dialog.Title>Import From URL</Dialog.Title>
-          <Dialog.CloseIconButton />
-
-          <Dialog.Description>Enter a valid Redis URL to import the connection.</Dialog.Description>
-
-          <TextInput
-            placeholder="Connection URL (e.g. redis://localhost:6379)"
-            LeftIcon={<LetterCaseCapitalizeIcon />}
-          />
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>
+      <ImportConnectionURL isOpen={isOpen} onClose={onClose} onConnectionImport={onConnectionImport} />
+    </>
   );
 }
